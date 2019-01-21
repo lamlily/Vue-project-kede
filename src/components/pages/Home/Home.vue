@@ -1,25 +1,28 @@
 <template>
   <div class="home">
     <!-- <h1>{{name}}</h1> -->
-    <Banner></Banner>
-    <Search></Search>
-    <Homelist v-for="(item,index) in movie_type" :key="index" :list="item">{{item}}</Homelist>
-    <!-- {{test}} -->
-    <!-- {{com}} -->
+    首页
+    <!-- <Search></Search> -->
+    <mt-swipe :auto="4000" class="banner">
+      <mt-swipe-item>12222</mt-swipe-item>
+      <mt-swipe-item>22222</mt-swipe-item>
+      <mt-swipe-item>32222</mt-swipe-item>
+    </mt-swipe>
   </div>
 </template>
 
 
 <script type="text/javascript">
 // 引入banner和homelist组件
-import Banner from "./Banner.vue";
+import Home from "./Home.vue";
 import Search from "../../commons/Search.vue";
-import Homelist from "./Homelist.vue";
-
+// import { Swipe, SwipeItem } from "mint-ui";
+// Vue.component(Swipe.name, Swipe);
+// Vue.component(SwipeItem.name, SwipeItem);
 export default {
   name: "Home",
   // 注册组件
-  components: { Banner, Homelist, Search },
+  components: { Home, Search },
   data() {
     return {
       name: "这里是home组件",
@@ -44,7 +47,7 @@ export default {
 
 <style lang="less" scoped>
 @import url("../../../styls/main.less");
-// .home{
-//     .padding(50,0,0,0);
-// }
+.banner {
+  height: 100px;
+}
 </style>

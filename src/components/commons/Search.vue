@@ -1,9 +1,15 @@
 <template>
   <div class="search">
-    <div class="left" @click="goPage">
-      <i class="fa fa-search" aria-hidden="true"></i>
-      <span>分类</span>
+    <div class="left">
+      <div v-show="i1Show" @click="goPage">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <span>分类</span>
+      </div>
+      <div v-show="i2Show" @click="goHome">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+      </div>
     </div>
+
     <div class="mid">
       <input type="text" placeholder="请输入您要搜索的内容">
     </div>
@@ -15,14 +21,35 @@ export default {
   name: "Search",
   data() {
     return {
-      path: "/classify"
+      path: ["/home", "/classify", "/search"],
+      currentPath: "",
+      i1Show: true,
+      i2Show: true
     };
   },
   methods: {
     goPage() {
       console.log(6666);
       //跳转到分类页
-      this.$router.push(this.path);
+      this.$router.push(this.path[1]);
+    },
+    //返回到首页
+    goHome() {
+      console.log("home");
+      this.$router.push("/home");
+    }
+  },
+  beforeMount() {
+    //   获取当前路由
+    this.currentPath = this.$route.path;
+    // 判断当前路由,改变搜索组件的显示内容
+    if (this.path[0] == this.currentPath) {
+      this.i2Show = !this.i2Show;
+    } else if (
+      this.path[1] == this.currentPath ||
+      this.path[2] == this.currentPath
+    ) {
+      this.i1Show = !this.i1Show;
     }
   },
   mouthted() {}
@@ -42,12 +69,18 @@ export default {
   .left {
     width: 20%;
     color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    i,
-    span {
-      text-align: center;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      i,
+      span {
+        text-align: center;
+      }
+      .fa-angle-left {
+        .fs(36);
+      }
     }
   }
   .mid {

@@ -21,12 +21,14 @@ import Classify from "../components/pages/Classify/Classify.vue"
 // import My from "../components/pages/My/My.vue"
 //引入My我的页面下的子页面login登录页面
 import Login from "../components/pages/My/Login.vue"
+import Search from "../components/pages/Search/Search.vue"
 //引入我的页面下的子页面Myinfo个人信息页面
-import Myinfo from "../components/pages/My/MyInfo.vue"
+import My from "../components/pages/My/MyInfo.vue"
+import Car from "../components/pages/Car/Car.vue"
+import Goods from "../components/pages/Goods/Goods.vue"
 
 
 // 2.设置路由 配置
-// 写法1：
 let router = new VueRouter({
     routes: [
         { path: '/', redirect: 'home' }, //重定向
@@ -38,17 +40,19 @@ let router = new VueRouter({
             children: [
                 { path: '/home', component: Home, name: 'Home' },
                 { path: '/classify', component: Classify, name: 'Classify' },
-                // { path: '/car', component: Car, name: 'car' }
+                { path: '/search', component: Search, name: 'Search' },
+                { path: '/car', component: Car, name: 'Car' },
+                { path: '/my', component: My, name: 'My' },
+                { path: '/goods', component: Goods, name: 'Goods' }
             ]
         },
         //根据相应的路由进入相应页面
         { path: '/login', component: Login, name: 'Login' },
-        // { path: '/geRen', component: geRen, name: 'geRen' },
-        { path: '/details', component: Details, name: 'Details' },
-        // { path: '/liebiao', component: GoodsList, name: 'liebiao' }
+        { path: '/details', component: Details, name: 'Details' }
     ]
 })
 
+//路由守卫
 router.beforeEach((to, from, next) => {
     // let token = localStorage.getItem("token");
     console.log(to.path)
@@ -59,6 +63,7 @@ router.beforeEach((to, from, next) => {
         // } else {
         //     next()
         // }
+    next()
 
 })
 

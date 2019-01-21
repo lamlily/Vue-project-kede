@@ -1,18 +1,17 @@
 <template>
-  <div>这是分类页
+  <div class="search">
     <Search></Search>
   </div>
 </template>
 <script>
-import Search from "../../commons/Search";
+import Search from "../../commons/Search.vue";
 export default {
   data() {
     return {};
   },
   components: {
     Search
-  },
-  methods: {}
+  }
 };
 </script>
 <style lang="less" scoped>
