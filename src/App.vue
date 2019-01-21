@@ -1,48 +1,27 @@
 <template>
   <div id="app">
-    <!-- <img src="./assets/logo.png">
-    <HelloWorld/> -->
-    <Header></Header>
-    <!-- <Slider></Slider> -->
-    <!-- <Home></Home> -->
     <router-view></router-view>
-
+    <Xfooter></Xfooter>
     <!-- ==相当于div，每当页面中hash值变化，就把变化区域hash挂载到router-view中来切换组件：如哈希值为home组件,则router-view显示为home -->
-
   </div>
 </template>
 
 
 <script>
-// import HelloWorld from './components/HelloWorld'
-// 引入组件
-import Header from './components/commons/Header.vue'
-// import Slider from './components/commons/Slider.vue'
-// import Home from './components/pages/Home/Home.vue'
-
-// 
-
+//引入底部组件
+import Xfooter from "./components/commons/Footer.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    // HelloWorld
-    Header//,Slider,Home
+    Xfooter
   },
-  mounted(){
+  mounted() {
     console.log(this);
   }
-}
+};
 </script>
 
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
