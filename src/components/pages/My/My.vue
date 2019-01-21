@@ -1,9 +1,8 @@
 <template>
     <div class="my" >
-      <!-- 这是我的页面 -->
-      <!-- 需要在这个父级页面也放置根路由 -->
-      <router-view></router-view>
-      <!-- <Login></Login> -->
+        
+        <router-view></router-view> 
+
     </div>
 
 </template>
@@ -18,10 +17,10 @@ import Login from "./Login.vue";
         components:{Login},
         data(){
             return{
-              
+            
             }
         },
-        methods:{
+        methods:{       
            
         },
         created(){
@@ -45,7 +44,6 @@ import Login from "./Login.vue";
 <style lang="less" scoped>
 // 引入配置样式总模块，固定写法
 @import url('../../../styls/main.less');
-
 
     
     

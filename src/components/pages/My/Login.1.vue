@@ -1,30 +1,30 @@
 <template>
   <div class="login">
-    
     <div class="my_nav">
-        <img class="topimg" src="../../../assets/login.png" alt="">      
-        <ul>         
-            <li
-            v-for="(item,index) in navlist" 
-            :key="index"
-            @click="toggle(item.path)"
-            :class='selInit==item.path?"sel":""'
-            >{{item.title}}</li>             
-        </ul>         
+      <img class="topimg" src="../../../assets/login.png" alt>
+      <ul>
+        <li
+          v-for="(item,index) in navlist"
+          :key="index"
+          @click="toggle(item.path)"
+          :class="selInit==item.path?"sel":"""
+        >{{item.title}}</li>
+      </ul>
     </div>
-    <Mylist :path='selInit'></Mylist>
 
+    <Mylist :path="selInit"></Mylist>
 
     <form action>
       <!-- <h4>注册</h4> -->
       <input type="text" placeholder="手机号/邮箱">
       <input type="text" placeholder="动态验证码" class="getcode">
       <span class="code">
-        <a href class="getcode2">获取验证码</a>
+        <a href class="getcode">获取验证码</a>
       </span>
       <span></span>
       <input type="button" value="提交">
-      <span class="xieyi">点击提交表示已同意
+      <span class="xieyi">
+        点击提交表示已同意
         <a class="xieyi" href="#">《可得用户协议》</a>
       </span>
       <span>———————————&nbsp;&nbsp;第三方登录&nbsp;&nbsp;—————————</span>
@@ -37,8 +37,7 @@
       <input type="button" value="登录">
       <a href="#" class="forget">忘记密码</a> <br/>
       <span>———————————&nbsp;&nbsp;第三方登录&nbsp;&nbsp;—————————</span>
-    </form> -->
-    
+    </form>-->
   </div>
 </template>
 
@@ -47,17 +46,17 @@
 export default {
   name: "Login",
   components: {},
-  data(){
-      return{
-        navlist:[{title:"快速登录/注册",path:"toregister"},{title:"密码登录",path:"tologin"}],
-        selInit:"toregister"
-      }
-  },
-  methods:{
-      toggle(val){
-          this.selInit = val;
-      }
-  },
+        data(){
+            return{
+              navlist:[{title:"快速登录/注册",path:"toregister"},{title:"密码登录",path:"tologin"}],
+              selInit:"toregister"
+            }
+        },
+        methods:{
+           toggle(val){
+               this.selInit = val;
+           }
+        },
   created() {}
 };
 </script>
@@ -139,29 +138,26 @@ form {
     color: #fff;
     .fs(16);
   }
-  a.getcode2 {
+  a.getcode {
     text-decoration: none;
     color: #999;
     position: absolute;
-    right: 0px;
+    right: -10px;
     bottom: 70px;
-
   }
   a.xieyi {
     color: #8fc320;
   }
-
 }
 
-form.mima{
-    a.forget{
-        text-align:right;
-        .margin(5,5,5,255);
-        .fs(14);
-        color:#EDAE1B;
-    }
+form.mima {
+  a.forget {
+    text-align: right;
+    .margin(5, 5, 5, 255);
+    .fs(14);
+    color: #edae1b;
+  }
 }
-
 
 .my_nav{
     ul{

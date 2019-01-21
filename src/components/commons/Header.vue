@@ -5,7 +5,7 @@
       <!-- <div class="left"> -->
       <!-- 分类bar要点击显示隐藏侧边栏 -->
       <div class="nav-icon" @click="navShow">
-        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        <i class="fa fa-angle-left" aria-hidden="true" ></i>
       </div>
       <div class="nav-title">快速登录/注册</div>
       <!-- {{isShow}} -->
@@ -82,13 +82,18 @@ export default {
       .w(48);
       .h(45);
       border-right: 1px solid @border-header; //red
+      i{
+        .fs(40);
+      }
     }
     .nav-title {
       // .w(178);
       .h(45);
       text-align: left;
       color: #fff;
+      .padding(0,0,0,90);
     }
+   
 
     //    }
   }
