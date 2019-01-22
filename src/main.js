@@ -5,7 +5,7 @@ import Vue from 'vue'
 import App from './App'
 // 引入一个组件
 Vue.config.productionTip = false
-// 引入全局配置样式reset.less  ： import + urls
+    // 引入全局配置样式reset.less  ： import + urls
 import './styls/reset.less'
 // 引入动画animate.css
 import '../node_modules/animate.css/animate.css'
@@ -17,20 +17,20 @@ Vue.prototype.$axios = Axios
 
 // 创建过滤器，注册(一定要返回数据return)（日期，年月日）
 // how引用（要替换的数据 |  注册的过滤器）
-Vue.filter('getDate',function(value){
-     // return new Date(value).getDate()+'月'+new Date(value).getDate()+'日'
-    return new Date(value).getMonth()+1+'月'+new Date(value).getDate()+'日'
-    // 如何拼接日期
-})
-//创建过滤器（星期几） 
-Vue.filter('getDay',function(value){
-     // return new Date(value).getDate()+'月'+new Date(value).getDate()+'日'
+Vue.filter('getDate', function(value) {
+        // return new Date(value).getDate()+'月'+new Date(value).getDate()+'日'
+        return new Date(value).getMonth() + 1 + '月' + new Date(value).getDate() + '日'
+            // 如何拼接日期
+    })
+    //创建过滤器（星期几） 
+Vue.filter('getDay', function(value) {
+    // return new Date(value).getDate()+'月'+new Date(value).getDate()+'日'
     var w = new Date(value).getDay()
-    var str="日一二三四五六"
-    // 0为日，1为一，2为二，3为三，4为四，5为五；6为六；
-     var w2=str[w]
+    var str = "日一二三四五六"
+        // 0为日，1为一，2为二，3为三，4为四，5为五；6为六；
+    var w2 = str[w]
     return w2
-    // 如何拼接日期
+        // 如何拼接日期
 })
 
 
@@ -47,10 +47,10 @@ Vue.use(MintUI)
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  components: { App },
-  template: '<App/>'
+    el: '#app',
+    router,
+    components: { App },
+    template: '<App/>'
 })
 
 

@@ -1,5 +1,6 @@
 <template>
   <div class="header">
+<<<<<<< HEAD
     <!-- <div>这里是header</div> -->
     <div class="contain">
       <!-- <div class="left"> -->
@@ -23,41 +24,36 @@
                     
                 </div>
       </div>-->
+=======
+    <div class="header_mask"></div>
+    <a class="classmenu" href="/classmenu">
+      <img src="https://pic.keede.com//app/images/Community/Index/classmenu.png">
+    </a>
+    <div class="hd_search head_icon" >
+      <input
+        type="search"
+        value
+        class="search_text"
+        name
+        placeholder="请输入您要搜索的内容"
+      >
+>>>>>>> 66ca1d918812112c53070e3503ba901663453433
     </div>
-    <!-- 引入子组件 ；因为模版里只可以有一个根元素，因此必须放在div.header里，因此把侧边栏外再加一个盒子contain; slider作为同级；-->
-    <!-- <Slider :show='isShow' @sliderhide='hide'></Slider> -->
   </div>
 </template>
 
 
 <script type="text/javascript">
-// 引入slider.vue作为头部的子组件；./当前文件夹；
 // import Footer from "./Footer.vue";
 
-export default {
-  name: "Header",
-  components: {  },
-  data() {
-    return {
-      isShow: false //不能写分号
-    };
-  },
-  methods: {
-    navShow() {
-      this.isShow = !this.isShow;
-    },
-    hide() {
-      // 自定义事件处理函数还是父组件的函数，给子元素使用
-      this.isShow = false;
-    }
-  }
-};
+export default {};
 </script>
 
 
 <style lang="less" scoped>
 // 引入配置样式总模块，固定写法
 @import url("../../styls/main.less");
+<<<<<<< HEAD
 .header {
   position: fixed;
   z-index: 9999;
@@ -98,4 +94,6 @@ export default {
     //    }
   }
 }
+=======
+>>>>>>> 66ca1d918812112c53070e3503ba901663453433
 </style>

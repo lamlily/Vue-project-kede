@@ -12,7 +12,7 @@
             >{{item.title}}</li>             
         </ul>         
     </div>
-    <Mylist :path='selInit'></Mylist>
+    <!-- <Mylist :path='selInit'></Mylist> -->
 
 
     <form action>

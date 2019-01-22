@@ -1,7 +1,7 @@
 <template>
     <div class="my" >
         
-        <router-view></router-view> 
+        <!-- <router-view></router-view>  -->
 
     </div>
 
@@ -30,9 +30,13 @@ import Login from "./Login.vue";
             //3.嵌套路由
             let isLogin = false//true
             if(isLogin){
-                this.$router.replace("/my/myinfo")
+                console.log(787)
+                this.$router.replace("/myinfo")
+                
             }else{
-                this.$router.replace("/my/login")
+                 console.log(565)
+                this.$router.replace("/login")
+               
             }
         }
 
