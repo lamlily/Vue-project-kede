@@ -6,7 +6,7 @@ import App from './App'
 // 引入一个组件
 Vue.config.productionTip = false
     // 引入全局配置样式reset.less  ： import + urls
-import './styls/reset.less'
+import './styls/reset.less';
 // 引入动画animate.css
 import '../node_modules/animate.css/animate.css'
 Vue.config.productionTip = false
