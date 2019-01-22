@@ -36,8 +36,11 @@
           v-for="(item,index) in navlist"
           :key="index"
           @click="toggle(item.path)"
-          :class='selInit==item.path?"sel":""'
-        ><i :class="item.icon" aria-hidden="true"></i>{{item.title}}</li>
+          :class="selInit==item.path?'sel':''"
+        >
+          <i :class="item.icon" aria-hidden="true"></i>
+          {{item.title}}
+        </li>
       </ul>
     </div>
     <ul class="goodsInfo" :path="selInit">
@@ -173,9 +176,9 @@ export default {
       // { src: "../../../assets/b3.jpg" }
 
       navlist: [
-        { icon: "fa fa-file-code-o ",title: "简介", path: "simpledesc" },
-        { icon: "fa fa-picture-o",title: "详情", path: "detaildesc" },
-        { icon: "fa fa-commenting-o",title: "评论", path: "commend" }
+        { icon: "fa fa-file-code-o ", title: "简介", path: "simpledesc" },
+        { icon: "fa fa-picture-o", title: "详情", path: "detaildesc" },
+        { icon: "fa fa-commenting-o", title: "评论", path: "commend" }
       ],
       selInit: "simpledesc",
 
@@ -481,13 +484,13 @@ export default {
         .lh(45);
         text-align: center;
         .margin(5, 5, 15, 5);
-        i{
-            .margin(0,5,0,0);
+        i {
+          .margin(0, 5, 0, 0);
         }
       }
       .sel {
         border-bottom: 3px solid #8fc320;
-        color:#8FC320;
+        color: #8fc320;
         font-weight: bold;
         // .fs(18);
       }
