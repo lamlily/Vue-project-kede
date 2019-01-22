@@ -3,7 +3,7 @@
     <Search></Search>
     <Banner></Banner>
     <Home_pinpai></Home_pinpai>
-    <Homelist></Homelist>
+    <Homelist type="海外购"></Homelist>
   </div>
   
 </template>

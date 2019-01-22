@@ -1,5 +1,14 @@
 <template>
-  <div class="homelist"></div>
+  <div class="homelist">
+    <h3 v-text="goodType"></h3>
+    <ul>
+      <li v-for="(item,idx) in goods" :key="idx">
+        <img :src="rootPath+item.imgUrl" alt>
+        <p v-text="item.goodTitle"></p>
+        <p v-text="'￥'+item.currentPrice"></p>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script type="text/javascript">
@@ -9,27 +18,28 @@ export default {
   data() {
     return {
       // name:"这里是homelist组件"
-      movielist: []
+      goods: [],
+      goodType: "",
+      rootPath: "",
+      pagesize: 6,
+      page: 1
     };
   },
   methods: {
-    
     getDetails(id) {
-     
       this.$router.push({ path: `/details/${id}` });
-     
     },
     getData() {
-      
       this.$axios
-        .get(`/api/v4/api/film/${this.list.path}`, {
-
-         
+        .get(`${this.rootPath}/index/findGoodTypee`, {
+          params: {
+            goodType: this.goodType,
+            pagesize: this.pagesize,
+            page: this.page
+          }
         })
         .then(res => {
-          // 从网站的首页-network-xhr(now-playing)-preview中找到data.films
-          this.movielist = res.data.data.films;
-          console.log(res.data.data);
+          this.goods = res.data.data;
         })
         .catch(err => {
           console.log(err);
@@ -37,8 +47,13 @@ export default {
     }
   },
   created() {
-    console.log(this)
-    
+    // console.log(this.$store.state.rootPath)
+    // console.log(this.$store.getters.getRootPath); //获取设置的根路径
+    this.rootPath = this.$store.getters.getRootPath;
+    // console.log(this.$props.list); //获取传入的参数
+    this.goodType = this.$props.type;
+    // 请求数据
+    this.getData();
   }
 };
 </script>
@@ -47,44 +62,26 @@ export default {
 @import url("../../../styls/main.less");
 
 .homelist {
-  background: #eee;
-}
-ul {
-  li {
-    .w(341);
-    .h(240);
-    margin: 20px auto;
-    background: #fff;
-
-    img {
-      width: 100%; //宽度为100%时不能用.w()
-    }
-    .contain {
-      .fs(12);
-      // background: red;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      .padding(5, 15, 15, 15);
-      box-sizing: border-box;
-      .left .p2 {
-        color: #999;
+  // background: #eee;
+  h3 {
+    .fs(18);
+    .padding(15, 15, 15, 15);
+  }
+  ul {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    width: 100%;
+    li {
+      width: 50%;
+      img {
+        width: 100%;
       }
-      .right {
-        color: red;
-        .fs(16);
+      p {
+        .fs(14);
+        .padding(0, 10, 0, 10);
       }
     }
   }
-}
-.bottom {
-  .w(160);
-  .h(30);
-  border: 1px solid #999;
-  border-radius: 15px;
-  .fs(18);
-  margin: 0 auto;
-  test-align: center;
-  .lh(30);
 }
 </style>

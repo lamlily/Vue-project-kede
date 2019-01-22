@@ -61,6 +61,9 @@ const store = new Vuex.Store({
     },
     getLoding(state) {
       return state.loadingStatus;
+    },
+    getRootPath(state){
+      return state.rootPath;
     }
   },
   // 异步的方法放这里
