@@ -2,7 +2,6 @@
 <template>
   <!-- <Details_header></Details_header> -->
   <div class="detailslist">
-    <!-- 我是details我是details我是details我是details我是details我是details我是details我是details我是details我是details -->
     <!-- {{detailslist}} -->
     <div class="top">
       <!-- <div class="turn"></div> -->
@@ -11,19 +10,13 @@
         <div class="swiper-container">
           <div class="swiper-wrapper">
             <!-- 通过v-for循环动态生成数据 -->
-            <div class="swiper-slide">
-              <!-- <div class="swiper-slide" v-for="(item,index) in bannerlist" :key="index">  -->
+            <!-- <div class="swiper-slide"> -->
+            <div class="swiper-slide" v-for="(item,index) in bannerlist" :key="index">
               <!--轮播图的图片 -->
-              <!-- <img :src="item.src" alt> -->
-              <img src="../../../assets/b1.jpg" alt>
-              <!-- <img src="../../../assets/b2.jpg" alt>
-              <img src="../../../assets/b3.jpg" alt>
-              <img src="../../../assets/b4.jpg" alt>
-              <img src="../../../assets/b5.jpg" alt>-->
+              <img :src="item" alt class="imgs">
+
               <!-- 通过axios请求get获取到网站的图片 -->
             </div>
-            <!-- <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>-->
           </div>
           <!-- 如果需要分页器 -->
           <div class="swiper-pagination"></div>
@@ -36,8 +29,11 @@
           v-for="(item,index) in navlist"
           :key="index"
           @click="toggle(item.path)"
-          :class='selInit==item.path?"sel":""'
-        ><i :class="item.icon" aria-hidden="true"></i>{{item.title}}</li>
+          :class="selInit==item.path? 'sel' : ''"
+        >
+          <i :class="item.icon" aria-hidden="true"></i>
+          {{item.title}}
+        </li>
       </ul>
     </div>
     <ul class="goodsInfo" :path="selInit">
@@ -151,15 +147,9 @@
 <script >
 //引入vue
 import Vue from "vue";
-//引入加载的字体图标mint-ui组件；
-// import {Toast} from 'mint-ui';
-// 引入swiper 轮播图插件
+
 import Swiper from "swiper";
 import { lazyload } from "mint-ui";
-//头部
-// import Details_header from "./Details_header.vue"
-//底部
-// import Details_footer from "./Details_footer.vue"
 
 export default {
   name: "Detailslist",
@@ -167,23 +157,22 @@ export default {
   data() {
     return {
       detailslist: [],
-      bannerlist: [],
-      // { src: "../../../assets/b1.jpg" },
-      // { src: "../../../assets/b2.jpg" },
-      // { src: "../../../assets/b3.jpg" }
+      bannerlist: [
+        "../../../assets/b1.jpg",
+        "../../../assets/b2.jpg",
+        "../../../assets/b3.jpg"
+      ],
 
       navlist: [
-        { icon: "fa fa-file-code-o ",title: "简介", path: "simpledesc" },
-        { icon: "fa fa-picture-o",title: "详情", path: "detaildesc" },
-        { icon: "fa fa-commenting-o",title: "评论", path: "commend" }
+        { icon: "fa fa-file-code-o ", title: "简介", path: "simpledesc" },
+        { icon: "fa fa-picture-o", title: "详情", path: "detaildesc" },
+        { icon: "fa fa-commenting-o", title: "评论", path: "commend" }
       ],
       selInit: "simpledesc",
 
       //加载数据显示功能
       loading: false,
-      // 加载过程中不让加载字体图标滚动，false为触发滚动。true为不能滚动，默认为false可以滚动
 
-      // 分页，默认为0;总页数为10
       current: 0,
       total: 10
     };
@@ -237,6 +226,7 @@ export default {
   },
 
   created() {
+    this.initSwiper();
     this.getData();
   }
 };
@@ -249,7 +239,7 @@ export default {
 /*引入swiper 轮播图插件 样式*/
 @import url("../../../../node_modules/swiper/dist/css/swiper.min.css");
 
-.details {
+.detailslist {
   .top {
     .w(375);
     .h(375);
@@ -258,10 +248,19 @@ export default {
     }
     .banner {
       .h(375);
-      // border:1px solid #ccc;
-      img {
+      .swiper-container {
+        .w(375);
         .h(375);
+        .swiper-wrapper {
+          .swiper-slide {
+            .imgs {
+              .w(375);
+              .h(375);
+            }
+          }
+        }
       }
+      // border:1px solid #ccc;
     }
   }
   .goodsInfo {
@@ -481,13 +480,13 @@ export default {
         .lh(45);
         text-align: center;
         .margin(5, 5, 15, 5);
-        i{
-            .margin(0,5,0,0);
+        i {
+          .margin(0, 5, 0, 0);
         }
       }
       .sel {
         border-bottom: 3px solid #8fc320;
-        color:#8FC320;
+        color: #8fc320;
         font-weight: bold;
         // .fs(18);
       }

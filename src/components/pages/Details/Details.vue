@@ -2,6 +2,7 @@
 <template>
     <div class="details">
         <!-- 我是Details.vue -->
+        <Header></Header>
 
         <detailslist></detailslist>
 
@@ -17,11 +18,12 @@
 import Detailslist from './detailslist.vue'
 import BackTop from '../../commons/BackTop.vue'
 import Details_footer from "./Details_footer.vue"
+import Header from "../../commons/Header.vue"
 
     export default{
         name:'Details',
         // 注册组件
-        components:{Detailslist,BackTop,Details_footer},
+        components:{Detailslist,BackTop,Details_footer,Header},
         data(){
             return{
                          

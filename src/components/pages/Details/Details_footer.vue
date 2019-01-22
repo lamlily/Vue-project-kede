@@ -35,8 +35,8 @@
         components:{},
         data(){
             return{
-              tablist:[{name:'首页',path:"/home",icon:"fa fa-university"},{name:'收藏',path:"/my",icon:"fa fa-heart-o"},{name:'购物车',path:"/goods",icon:"fa fa-shopping-bag"}],
-              tablist2:[{name:'加入购物车',path:'/shoppingcar',icon:"fa fa-shopping-cart"}],
+              tablist:[{name:'首页',path:"/home",icon:"fa fa-university"},{name:'收藏',path:"",icon:"fa fa-heart-o"},{name:'购物车',path:"/car",icon:"fa fa-shopping-bag"}],
+              tablist2:[{name:'加入购物车',path:'',icon:"fa fa-shopping-cart"}],
               selInit:""
             }
         },
