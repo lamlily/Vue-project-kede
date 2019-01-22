@@ -45,10 +45,13 @@ import 'mint-ui/lib/style.css'
 Vue.use(MintUI)
 
 
+    
+import store from "./store/index.js"
 /* eslint-disable no-new */
 new Vue({
     el: '#app',
     router,
+    store,
     components: { App },
     template: '<App/>'
 })

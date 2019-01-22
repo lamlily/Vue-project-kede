@@ -29,11 +29,7 @@
           v-for="(item,index) in navlist"
           :key="index"
           @click="toggle(item.path)"
-<<<<<<< HEAD
-          :class="selInit==item.path?'sel':''"
-=======
           :class="selInit==item.path? 'sel' : ''"
->>>>>>> 34b11479eb8e9b6afcf1d14b6e947bfd69daef98
         >
           <i :class="item.icon" aria-hidden="true"></i>
           {{item.title}}
