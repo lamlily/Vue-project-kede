@@ -2,7 +2,6 @@
 <template>
 <!-- <Details_header></Details_header> -->
     <div class="detailslist" >
-        <!-- 我是details我是details我是details我是details我是details我是details我是details我是details我是details我是details -->
         <!-- {{detailslist}} -->
         <div class="top">
             <div class="turn"><</div>

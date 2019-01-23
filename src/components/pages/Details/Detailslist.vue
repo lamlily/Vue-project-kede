@@ -10,13 +10,19 @@
         <div class="swiper-container">
           <div class="swiper-wrapper">
             <!-- 通过v-for循环动态生成数据 -->
-            <!-- <div class="swiper-slide"> -->
-            <div class="swiper-slide" v-for="(item,index) in bannerlist" :key="index">
+            <div class="swiper-slide">
+              <!-- <div class="swiper-slide" v-for="(item,index) in bannerlist" :key="index">  -->
               <!--轮播图的图片 -->
-              <img :src="item" alt class="imgs">
-
+              <!-- <img :src="item.src" alt> -->
+              <img src="../../../assets/b1.jpg" alt>
+              <!-- <img src="../../../assets/b2.jpg" alt>
+              <img src="../../../assets/b3.jpg" alt>
+              <img src="../../../assets/b4.jpg" alt>
+              <img src="../../../assets/b5.jpg" alt>-->
               <!-- 通过axios请求get获取到网站的图片 -->
             </div>
+            <!-- <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>-->
           </div>
           <!-- 如果需要分页器 -->
           <div class="swiper-pagination"></div>
@@ -29,7 +35,7 @@
           v-for="(item,index) in navlist"
           :key="index"
           @click="toggle(item.path)"
-          :class="selInit==item.path? 'sel' : ''"
+          :class="selInit==item.path?'sel':''"
         >
           <i :class="item.icon" aria-hidden="true"></i>
           {{item.title}}
@@ -38,99 +44,155 @@
     </div>
     <ul class="goodsInfo" :path="selInit">
       <li>
-        <p class="price">
-          <span></span>
-          <span></span>
-          <span>包税价</span>
-        </p>
-        <!-- <img src="" alt="" /> -->
-        <p class="title">
-          <span class="kuajing">
-            跨境
-            <span>自营</span>
-          </span>
-        </p>
-        <p class="desc"></p>
-
-        <div class="shui">
-          <p>
-            <img alt>
-            <span></span>
-            <span></span>
-            <span></span>
-          </p>
-
-          <p>
-            <span></span>
-            <span></span>
-            <span></span>
-          </p>
-        </div>
-
-        <div class="adv">
-          <img alt>
-        </div>
-
-        <div class="yunfei">
-          <p class="yixuan">
-            已选：件
-            <i class="fa fa-angle-right" aria-hidden="true"></i>
-          </p>
-          <p>运费：</p>
-          <p>说明：</p>
-
-          <div class="commend">
+        <div class="goodprice">
+          <div class="price">
+            <p>168元包邮：ReVIA蕾美彩色日抛30片装！</p>
             <p>
-              商品评价
-              <span>
-                好评率 100%
-                <i class="fa fa-angle-right" aria-hidden="true"></i>
-              </span>
+              <del>￥324.00</del>
+            </p>
+            <p>
+              ￥168.00
+              <span class="zuhe">组合价</span>
+            </p>
+            <p>
+              <span>购买赠送 168 积分</span>
+              <span>已降 156.00元</span>
             </p>
           </div>
-          <div class="pinpai">
-            <div class="ptop">
-              <div>
-                <img alt>
-              </div>
-              <div>
-                <p></p>
-                <p>在售商品件</p>
-              </div>
-              <span>
-                进入品牌
-                <i class="fa fa-angle-right" aria-hidden="true"></i>
-              </span>
+          <div class="shoucang">
+            <i class="fa fa-heart-o"></i>
+          </div>
+        </div>
+
+        <div class="set">
+          <div class="settop">
+            <span>套餐组合</span>
+            <span>
+              含
+              <span style="color:#f06;">3</span>件商品，剩余
+              <span style="color:#f06;">3</span>件需选择参数
+            </span>
+          </div>
+          <div class="setmain">
+            <div class="setmain0">
+              <img alt src="../../../assets/b2.jpg">
+              <p class="main">
+                <span>ReVIA蕾美彩色日抛10片装-迷雾深灰 MIst Iris（Namie同款）</span>
+                <br>
+                <span class="choose">
+                  <span>请选择颜色/度数</span>
+                  <span>V</span>
+                </span>
+              </p>
             </div>
-            <ul class="goods">
-              <li class="goods0">
-                <img alt>
-                <p>
-                  <span></span>
-                </p>
-                <p>
-                  <span></span>
-                </p>
-                <p>
-                  <span></span>
-                </p>
-              </li>
-            </ul>
+
+            <div class="setmain0">
+              <img alt src="../../../assets/b3.jpg">
+              <p class="main">
+                <span>ReVIA蕾美彩色日抛10片装-迷雾深灰 MIst Iris（Namie同款）</span>
+                <br>
+                <span class="choose">
+                  <span>请选择颜色/度数</span>
+                  <span>V</span>
+                </span>
+              </p>
+            </div>
+
+            <div class="setmain0">
+              <img alt src="../../../assets/b4.jpg">
+              <p class="main">
+                <span>ReVIA蕾美彩色日抛10片装-迷雾深灰 MIst Iris（Namie同款）</span>
+                <br>
+                <span class="choose">
+                  <span>请选择颜色/度数</span>
+                  <span>V</span>
+                </span>
+              </p>
+            </div>
           </div>
         </div>
 
         <div class="recommend">
           <div class="ptop">
-            <p>相关推荐</p>
-            <p>同类热销推荐</p>
+            <p class="pinglun">评论</p>
           </div>
           <ul class="goods goods0">
             <li>
-              <img alt>
-              <p>
-                <span></span>
-              </p>
-              <p>￥</p>
+              <div class="user">
+                <div class="utop">
+                  <img src="https://pic.keede.com//app/images/sinaimg.gif" alt class="touxiang">
+                  <p>1***A</p>
+                  <p>2019/1/21 16:43:46</p>
+                </div>
+                <div class="umid">*****</div>
+                <div class="ubottom">好</div>
+              </div>
+              <div class="pic">
+                <img
+                  alt
+                  src="https://pic.keede.com//remark/513aecaf-b94f-4e11-9d17-28fc2e52353c.jpg"
+                >
+                <img src="https://pic.keede.com//remark/f4a6208c-8382-45f6-ae92-50db0d3a228c.jpg">
+              </div>
+              <p class="color">颜色：自然黑Black （Name同款）</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="recommend">
+          <ul class="goods goods0">
+            <li>
+              <div class="user">
+                <div class="utop">
+                  <img src="https://pic.keede.com//app/images/sinaimg.gif" alt class="touxiang">
+                  <p>1***A</p>
+                  <p>2019/1/21 16:43:46</p>
+                </div>
+                <div class="umid">*****</div>
+                <div class="ubottom">好</div>
+              </div>
+              <div class="pic">
+                <img
+                  alt
+                  src="https://pic.keede.com//remark/513aecaf-b94f-4e11-9d17-28fc2e52353c.jpg"
+                >
+              </div>
+              <p class="color">颜色：自然黑Black （Name同款）</p>
+              <div class="ptop">
+                <p class="pinglun more">更多评论 (434)</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="recommend">
+          <div class="ptop">
+            <p class="kefu">在线客服</p>
+            <p class="kefu">电话客服</p>
+          </div>
+          <div class="ptop">
+            <p class="like">猜你喜欢</p>
+          </div>
+          <ul class="goods goods0">
+            <li class="others">
+              <div class="pic0">
+                <img
+                  alt
+                  src="https://pic.keede.com/MobileMain/8e91c48c-5f28-43c2-ade0-6a8a1923d0bf-250-250.jpg"
+                >
+                <p class="color">HAN RAZR -X9</p>
+                <P>￥169</P>
+              </div>
+              <div class="pic0">
+                <img
+                  alt
+                  src="https://pic.keede.com/MobileMain/7b79442a-cc75-4358-b61e-bf2109885982-250-250.jpg"
+                >
+                <p class="color">HAN RAZR -X9</p>
+                <P>￥169</P>
+              </div>
+
+              <div class="ptop"></div>
             </li>
           </ul>
         </div>
@@ -147,9 +209,15 @@
 <script >
 //引入vue
 import Vue from "vue";
-
+//引入加载的字体图标mint-ui组件；
+// import {Toast} from 'mint-ui';
+// 引入swiper 轮播图插件
 import Swiper from "swiper";
 import { lazyload } from "mint-ui";
+//头部
+// import Details_header from "./Details_header.vue"
+//底部
+// import Details_footer from "./Details_footer.vue"
 
 export default {
   name: "Detailslist",
@@ -157,11 +225,10 @@ export default {
   data() {
     return {
       detailslist: [],
-      bannerlist: [
-        "../../../assets/b1.jpg",
-        "../../../assets/b2.jpg",
-        "../../../assets/b3.jpg"
-      ],
+      bannerlist: [],
+      // { src: "../../../assets/b1.jpg" },
+      // { src: "../../../assets/b2.jpg" },
+      // { src: "../../../assets/b3.jpg" }
 
       navlist: [
         { icon: "fa fa-file-code-o ", title: "简介", path: "simpledesc" },
@@ -172,7 +239,9 @@ export default {
 
       //加载数据显示功能
       loading: false,
+      // 加载过程中不让加载字体图标滚动，false为触发滚动。true为不能滚动，默认为false可以滚动
 
+      // 分页，默认为0;总页数为10
       current: 0,
       total: 10
     };
@@ -226,7 +295,6 @@ export default {
   },
 
   created() {
-    this.initSwiper();
     this.getData();
   }
 };
@@ -239,247 +307,38 @@ export default {
 /*引入swiper 轮播图插件 样式*/
 @import url("../../../../node_modules/swiper/dist/css/swiper.min.css");
 
-.detailslist {
+.details {
   .top {
     .w(375);
     .h(375);
+    .margin(45, 0, 0, 0);
     .turn {
       .h(36);
     }
     .banner {
       .h(375);
-      .swiper-container {
-        .w(375);
-        .h(375);
-        .swiper-wrapper {
-          .swiper-slide {
-            .imgs {
-              .w(375);
-              .h(375);
-            }
-          }
-        }
-      }
       // border:1px solid #ccc;
-    }
-  }
-  .goodsInfo {
-    p.price {
-      span {
-        .margin(0, 10, 0, 0);
-        .padding(0, 0, 0, 10);
-      }
-      span:first-of-type {
-        .fs(26);
-        font-weight: bold;
-        color: #ff0066 !important;
-      }
-      span:nth-of-type(2) {
-        .fs(12);
-        text-decoration: line-through;
-        color: #ccc;
-        text-align: center;
-        font-weight: bold;
-      }
-      span:last-of-type {
-        .fs(12);
-        background: #ff0066;
-        color: #eee;
-        .border-radius(10);
-        .padding(1, 5, 3, 5);
-      }
-    }
-
-    p.title {
-      // word-break: break-all;
-      .fs(16);
-      font-weight: bold;
-      background-color: #fff;
-      color: #333;
-      .margin(10, 5, 0, 10);
-      // .padding(10,0,0,50);
-      span.kuajing {
-        .fs(14);
-        text-indent: 2em;
-        background: purple;
-        .border-radius(10);
-        color: #fff;
-        .padding(2, 2, 2, 2);
-      }
-    }
-    p.desc {
-      .fs(12);
-      color: #666;
-      .margin(10, 10, 10, 10);
-    }
-    .shui {
-      .h(93);
-      .fs(12);
-      background: #eee;
-      padding: 0.5rem 0rem 0.5rem 0.5rem;
-      color: #333;
-      .margin(10, 10, 10, 10);
-      box-sizing: border-box;
-      p:first-of-type {
-        border-bottom: 1px solid #ddd;
-        padding: 0rem 0rem 0.4rem 0rem;
-        img {
-          .w(13);
-          .h(13);
-        }
-        span:nth-of-type(2) {
-          .margin(0, 120, 0, 0);
-        }
-      }
-      p:nth-of-type(2) {
-        padding: 0.3rem 0rem 0.5rem 0rem;
-        span {
-          .margin(0, 30, 10, 5);
-        }
-      }
-    }
-    .adv {
-      .h(156);
-
       img {
-        .w(375);
-        .h(156);
-      }
-    }
-    .yunfei {
-      .fs(14);
-      color: #333;
-      border-bottom: solid #eee 0.02rem;
-      padding: 0.4rem 0;
-      background: #eee;
-      p {
-        border-bottom: 1px solid #ccc;
-        background: #fff;
-        padding: 0.8em 1em;
-        i {
-          .margin(0, 0, 0, 270);
-        }
-      }
-    }
-    .commend {
-      .fs(14);
-      .h(44);
-      .margin(10, 0, 35, 0);
-
-      p {
-        display: flex;
-        justify-content: space-between;
-        .h(44);
-        padding: 0.8em 1em;
-        .lh(44);
-
-        // border:1px solid #ccc;
-        span {
-          color: #f06;
-          i {
-            .margin(0, 0, 0, 5);
-            color: #000;
-          }
-        }
-      }
-    }
-    .pinpai,
-    .recommend {
-      .h(286);
-      .fs(14);
-      // background: red;
-      // .margin(20,0,10,0);
-      .ptop {
-        display: flex;
-        .h(84);
-        justify-content: space-between;
-        background: #fff;
-        span {
-          .lh(84);
-          color: #f06;
-
-          i {
-            .margin(0, 15, 0, 5);
-            color: #000;
-          }
-        }
-        img {
-          .h(84);
-        }
-      }
-      ul.goods {
-        // .h(189);
-        display: flex;
-        justify-contert: space-between;
-        background: #fff;
-        li {
-          width: 33.3%;
-
-          img {
-            .w(100);
-            .h(86);
-            .padding(0, 10, 0, 15);
-            background: #fff;
-          }
-          p {
-            .fs(12);
-          }
-          p:first-of-type {
-            // .h(40);
-            // text-align: center;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-          }
-          p:nth-of-type(2) {
-            text-align: center;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            color: #999;
-          }
-          p:last-of-type {
-            color: #ff0066;
-          }
-        }
-        p:nth-of-type(3) {
-        }
-      }
-    }
-    .recommend {
-      margin-bottom: 40px;
-      background: #eee;
-      .h(230);
-      .ptop {
-        align-items: center;
-        p {
-          flex: 1;
-          text-align: center;
-          border-bottom: 1px solid #ccc;
-          .padding(0, 0, 20, 0);
-        }
+        .h(375);
       }
     }
   }
+
   .nav {
     ul {
       .w(350);
       display: flex;
       justify-content: center;
-      // align-items:center;
-      // justify-content:center;
-      // .padding(20,20,20,20);
-      .fs(16);
+      .fs(18);
       margin: 0 auto;
-      // border-bottom:1px solid #8FC320;
+      border-bottom: 1px solid #ddd;
 
       li {
         .w(175);
-        .h(45);
+        .h(52);
         border-bottom: 2px solid #fff;
         .lh(45);
         text-align: center;
-        .margin(5, 5, 15, 5);
         i {
           .margin(0, 5, 0, 0);
         }
@@ -494,6 +353,204 @@ export default {
     img.topimg {
       .w(375);
       .h(194);
+    }
+  }
+
+  .goodsInfo {
+    .goodprice {
+      display: flex;
+      .margin(0, 0, 30, 0);
+
+      .price {
+        p {
+          .margin(0, 10, 0, 0);
+          .padding(0, 0, 0, 10);
+          .lh(30);
+        }
+        p:first-of-type {
+          .fs(16);
+        }
+        p:nth-of-type(2) {
+          .fs(12);
+          text-decoration: line-through;
+          color: #ccc;
+          font-weight: bold;
+        }
+        p:nth-of-type(3) {
+          .fs(16);
+          font-weight: bold;
+        }
+        span.zuhe {
+          .fs(12);
+          background: #8fc320;
+          color: #eee;
+          .border-radius(10);
+          .padding(1, 5, 3, 5);
+        }
+        p:last-of-type {
+          span {
+            .fs(14);
+            border: 1px solid #f06;
+            color: #f06;
+          }
+        }
+      }
+      .shoucang {
+        .padding(40, 0, 0, 10);
+        .fs(22);
+        border-left: 1px solid #ccc;
+        color: #ccc;
+        .margin(10, 0, 0, 0);
+      }
+    }
+
+    .set {
+      .h(474);
+      // .margin(0,0,10,0);
+      border-bottom: 1px solid #ddd;
+
+      img {
+        .w(92);
+        .h(92);
+      }
+      .settop {
+        .fs(16);
+        .h(50);
+        .lh(50);
+        border-bottom: 1px solid #ccc;
+        border-top: 1px solid #ccc;
+        display: flex;
+        justify-content: space-between;
+        .padding(0, 20, 0, 20);
+        span:nth-of-type(2) {
+          color: #999;
+        }
+      }
+      .setmain {
+        .setmain0 {
+          display: flex;
+          .margin(10, 0, 0, 10);
+          p.main {
+            display: flex;
+            flex-direction: column;
+            // justify-content: center;
+            span {
+              .fs(14);
+              color: rgb(90, 86, 86);
+              .margin(0, 20, 0, 20);
+            }
+            span.choose {
+              border: 1px solid #ccc;
+              display: flex;
+              justify-content: space-around;
+              .margin(0, 20, 0, 20);
+              .h(38);
+              .lh(38);
+            }
+          }
+        }
+      }
+    }
+
+    .recommend {
+      .h(286);
+      .fs(16);
+      // background: red;
+      .margin(20, 0, 20, 20);
+      border-bottom: 1px solid #ddd;
+      .ptop {
+        display: flex;
+        .h(50);
+        .lh(50);
+        justify-content: space-around;
+        background: #fff;
+        span {
+          .lh(84);
+          color: #f06;
+
+          i {
+            .margin(0, 15, 0, 5);
+            color: #000;
+          }
+        }
+        img {
+          .h(84);
+        }
+        .kefu {
+          border: 1px solid #ddd;
+          border-radius: 30px;
+          .w(146);
+          .h(47);
+          text-align: center;
+        }
+        .like {
+          .w(350);
+          .h(47);
+          border-bottom: 1px solid #ddd;
+          border-top: 1px solid #ddd;
+          .margin(20, 0, 0, 0);
+        }
+      }
+      ul.goods {
+        // .h(189);
+        display: flex;
+        justify-contert: space-between;
+        background: #fff;
+        .lh(30);
+        li {
+          .user {
+            .utop {
+              display: flex;
+              justify-content: space-between;
+              img.touxiang {
+                border-radius: 50%;
+                .w(30);
+                .h(30);
+              }
+            }
+            .umid,
+            .ubottom {
+              .padding(0, 0, 0, 40);
+            }
+          }
+
+          .pic {
+            display: flex;
+            img {
+              .w(100);
+              .h(86);
+              .padding(0, 10, 0, 15);
+              background: #fff;
+            }
+          }
+           .pic0{
+            // display:flex;
+            img{
+              .w(162);
+              .h(162);
+            }
+          }
+          
+        }
+        li.others{
+          display:flex;
+          .margin(0,0,100,0);
+          border-bottom:1px solid #ccc;
+          .padding(0,0,10,0);
+        }
+     
+
+        p.color {
+          color: #999;
+          .padding(15, 0, 0, 0);
+        }
+        .more {
+          .w(350);
+          border-top: 1px solid #ddd;
+          .margin(10, 0, 0, 0);
+          text-align: center;
+        }
+      }
     }
   }
 }

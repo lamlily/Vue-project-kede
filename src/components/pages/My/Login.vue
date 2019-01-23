@@ -17,10 +17,10 @@
 
     <form action>
       <!-- <h4>注册</h4> -->
-      <input type="text" placeholder="手机号/邮箱">
-      <input type="text" placeholder="动态验证码" class="getcode">
-      <span class="code">
-        <a href class="getcode2">获取验证码</a>
+      <input type="text" placeholder="手机号/邮箱" class="uname">
+      <input type="text" :placeholder="selInit=='toregister'?'动态验证码':'密码'"  class="getcode">
+      <span class="code" >
+        <span  class="getcode2" :class="selInit=='toregister'?'':'hide'">获取验证码</span>
       </span>
       <span></span>
       <input type="button" value="提交">
@@ -51,12 +51,14 @@ export default {
       return{
         navlist:[{title:"快速登录/注册",path:"toregister"},{title:"密码登录",path:"tologin"}],
         selInit:"toregister"
+        // formlist:["动态验证码","密码"]
       }
   },
   methods:{
       toggle(val){
           this.selInit = val;
       }
+      
   },
   created() {}
 };
@@ -101,9 +103,9 @@ form {
     .padding(0, 0, 0, 15);
   }
   input.uname {
-    .w(150);
+    // .w(150);
     .h(44);
-    .margin(0, 10, 0, 0);
+    .margin(0, 10, 0, 18);
   }
   input.getcode {
     .margin(0, 20, 0, 18);
@@ -128,23 +130,26 @@ form {
   span:last-of-type {
     .fs(12);
     color: #999;
+    .margin(0,0,0,18);
   }
   span.xieyi {
     .fs(12);
-    .padding(0, 95, 0, 10);
+    .padding(0, 95, 0, 20);
   }
   input:last-of-type {
-    .margin(20, 5, 0, 10);
+    .margin(20, 5, 0, 18);
     background: #89b929;
     color: #fff;
     .fs(16);
   }
-  a.getcode2 {
+  span.getcode2 {
     text-decoration: none;
     color: #999;
     position: absolute;
-    right: 0px;
+    right: -8px;
     bottom: 70px;
+    .margin(0,12,0,0);
+    border-left:1px solid #ddd;
 
   }
   a.xieyi {
@@ -160,6 +165,10 @@ form.mima{
         .fs(14);
         color:#EDAE1B;
     }
+}
+
+.hide{
+  display:none;
 }
 
 

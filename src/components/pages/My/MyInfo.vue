@@ -172,6 +172,7 @@ div.myinfo {
           background:#FFA926;
           border-radius:25px;
           color:#fff;
+          text-align:center;
       }
     }
   }
