@@ -55,8 +55,15 @@ let router = new VueRouter({
     ]
 })
 
+//使用loader状态
+import { Indicator } from "mint-ui";
+
 //路由守卫
 router.beforeEach((to, from, next) => {
+    // Indicator.open({
+    //     text: "加载中...",
+    //     spinnerType: "double-bounce"
+    //   });
     // let token = localStorage.getItem("token");
     console.log(to.path)
         // if (to.path == '/car' || to.path == 'geren') { //应该先判断token是否验证成功   //注意无限循环
@@ -66,7 +73,10 @@ router.beforeEach((to, from, next) => {
         // } else {
         //     next()
         // }
-    next()
+        
+    next();
+    // 关闭加载状态
+    
 
 })
 
