@@ -53,7 +53,17 @@ new Vue({
     router,
     store,
     components: { App },
-    template: '<App/>'
+    template: '<App/>',
+    // watch: {
+    //     //监听路由变化
+    //     $route(to, from) {
+    //       // console.log(to, from); // to,from 分别表示从哪跳转到哪，都是一个对象 // to.path   ( 表示的是要跳转到的路由的地址 eg:  /home );
+    //       this.$store.commit("editCurrentRouter", to.path);//更改仓库数据
+           
+    //       console.log(to.path)
+    //     }
+        
+    //   }
 })
 
 

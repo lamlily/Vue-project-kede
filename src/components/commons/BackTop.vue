@@ -22,7 +22,7 @@
             return{
                show:false,
                //默认开始显示为false;
-               distance:200
+               distance:300
                //监听距离
             }
         },

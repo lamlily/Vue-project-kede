@@ -2,7 +2,7 @@
   <div class="homelist">
     <h3 v-text="goodType"></h3>
     <ul>
-      <li v-for="(item,idx) in goods" :key="idx">
+      <li v-for="(item,idx) in goods" :key="idx" @click="goPage(item.goodId)">
         <img :src="rootPath+item.imgUrl" alt>
         <p v-text="item.goodTitle"></p>
         <p v-text="'￥'+item.currentPrice"></p>
@@ -12,9 +12,11 @@
 </template>
 
 <script type="text/javascript">
+
+import { Indicator } from "mint-ui";
 export default {
   name: "Homelist",
-  props: ["list"],
+  props: ["type"],
   data() {
     return {
       // name:"这里是homelist组件"
@@ -30,6 +32,12 @@ export default {
       this.$router.push({ path: `/details/${id}` });
     },
     getData() {
+      //先显示load状态
+      Indicator.open({
+        text: "加载中...",
+        spinnerType: "double-bounce"
+      });
+      //获取数据
       this.$axios
         .get(`${this.rootPath}/index/findGoodTypee`, {
           params: {
@@ -40,10 +48,19 @@ export default {
         })
         .then(res => {
           this.goods = res.data.data;
+          // 关闭加载状态
+          Indicator.close();
         })
         .catch(err => {
           console.log(err);
+          // 关闭加载状态
+          Indicator.close();
         });
+    },
+    goPage(id){
+      console.log(id)
+      //跳转到商品详情页
+      this.$router.push('/details');
     }
   },
   created() {
@@ -65,7 +82,8 @@ export default {
   // background: #eee;
   h3 {
     .fs(18);
-    .padding(15, 15, 15, 15);
+    .padding(20, 15, 10, 15);
+    font-weight:bold;
   }
   ul {
     display: flex;
@@ -74,12 +92,13 @@ export default {
     width: 100%;
     li {
       width: 50%;
+      border:1px solid #eee;
       img {
         width: 100%;
       }
       p {
         .fs(14);
-        .padding(0, 10, 0, 10);
+        .padding(5, 10, 5, 10);
       }
     }
   }

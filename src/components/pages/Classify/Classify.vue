@@ -81,6 +81,8 @@ export default {
         })
         .catch(error => {
           console.log(error);
+          // 关闭加载状态
+          Indicator.close();
         });
     }
   },

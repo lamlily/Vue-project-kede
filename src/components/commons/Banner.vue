@@ -28,6 +28,7 @@ export default {
 <style lang="less" scoped>
 @import url("../../styls/main.less");
 div {
+  .margin(20,0,0,0);
   .banner {
     .h(225);
     .banner-item {
