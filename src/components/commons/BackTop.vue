@@ -35,7 +35,7 @@
         created(){
         //事件监听器
             window.addEventListener('scroll',()=>{
-                console.log(window.scrollY)
+                // console.log(window.scrollY)
                 //屏幕滚动过的y轴的距离
                 let y = window.scrollY
                 //判断如果屏幕滚动距离>=设置的distance则显示返回顶部按钮；默认为false；显示为true
@@ -67,11 +67,12 @@
     .contain{
         position:fixed;
         right:20px;
-        bottom:20px;
+        bottom:55px;
         .w(50);
         .h(50);
         border-radius:50%;
         background:#000;
+        // opacity:0.7;
         color:#fff;
         .fs(22);
         text-align:center;
