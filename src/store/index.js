@@ -8,60 +8,38 @@ Vue.use(Vuex);
 // 库
 const store = new Vuex.Store({
   state: {
-    // 状态值
+    // 根路径
     rootPath:"http://47.93.0.253:3000",
-    count: 0,
-    author: "lemon",
-
-    // loading
-    loadingStatus: false,
-    // 预览图状态
-    // 图片的地址
-    galleryImgUrl: "",
-    // 预览图组件的状态值
-    galleryStatus: false,
-    // 新闻的ID
-    newsId: 0
+    
+    // 毒物页之间的兄弟传参
+    goodType:"",
+    goodsList:[]
+    
   },
   // 修改数据的方法 真正改数据的操作
   mutations: {
     // 修改数据的第一个方法
-    editCount(state) {
-      state.count++;
-    },
-    // 修改仓库中state中的author
-    editAuthor(state, data) {
-      state.author = data;
+    editGoodType(state,obj) {
+      state.goodType = obj.goodType;
+      state.goodsList = obj.goodsList;
     },
     editGallery(state, obj) {
       state.galleryImgUrl = obj.galleryImgUrl;
       state.galleryStatus = obj.galleryStatus;
     },
-    editLoding(state, bool) {
-      state.loadingStatus = bool;
-    },
-    editNewsId(state, id) {
-      state.newsId = id;
-    }
+    
+    
   },
   // 获取数据的方法
   getters: {
-    // 获取author的方法
-    getAuthor(state) {
-      return state.author + " Yeah";
-    },
-    getCount(state) {
-      return state.count;
-    },
-    getGallery(state) {
+    // 获取GoodType的方法
+    getGoodType(state) {
       return {
-        galleryImgUrl: state.galleryImgUrl,
-        galleryStatus: state.galleryStatus
-      };
+        goodType:state.goodType,
+        goodsList:state.goodsList
+      }
     },
-    getLoding(state) {
-      return state.loadingStatus;
-    },
+    
     getRootPath(state){
       return state.rootPath;
     }

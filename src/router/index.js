@@ -65,7 +65,7 @@ router.beforeEach((to, from, next) => {
     //     spinnerType: "double-bounce"
     //   });
     // let token = localStorage.getItem("token");
-    console.log(to.path)
+    // console.log(to.path)
         // if (to.path == '/car' || to.path == 'geren') { //应该先判断token是否验证成功   //注意无限循环
         //     router.push({
         //         name: "Login"

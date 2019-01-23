@@ -65,7 +65,11 @@ export default {
   background: #141414;
   .fs(14);
   .h(45);
-
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index: 999;
   .left {
     width: 20%;
     color: #fff;

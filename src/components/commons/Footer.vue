@@ -5,7 +5,7 @@
         v-for="(item,index) in tablist"
         :key="index"
         @click="goPage(item)"
-        :class="selInit ==item.name ? active :''"
+        :class="selInit ==item.path ? active :''"
       >
         <!-- 点击事件多个用逗号隔开 -->
         <i :class="item.icon" aria-hidden="true"></i>
@@ -37,18 +37,27 @@ export default {
     //切换页面
     goPage(item) {
       this.$router.push(item.path);
-      this.selInit = item.name;
+      this.selInit = item.path;
+    },
+    checkRouterLocal(path) {
+      // 查找当前路由下标高亮
+      
     }
   },
   //获取当前路由，设置高亮信息
-  beforeMount() {
-    var path = this.$route.path;
-    for (var i = 0; i < this.tablist.length; i++) {
-      if (path == this.tablist[i].path) {
-        this.selInit = this.tablist[i].name;
+  created() {
+    //获取当前路由，并赋值
+    this.selInit = this.$route.path;
+  },
+   watch: {
+        //监听路由变化/实现底部导航高亮状态的跟随
+        $route(to, from) {
+          // to,from 分别表示从哪跳转到哪，都是一个对象 // to.path(表示的是要跳转到的路由的地址);
+          this.selInit = to.path;
+          console.log(to.path)
+        }
+        
       }
-    }
-  }
 };
 </script>
 

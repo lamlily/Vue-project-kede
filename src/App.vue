@@ -15,13 +15,25 @@ import Home from "./components/pages//Home/Home.vue";
 
 export default {
   name: "App",
+  data() {
+    return {
+      path: ""
+    };
+  },
   components: {
     Xfooter,
     Home
   },
   mounted() {
     // console.log(this);
+  },
+  created() {
+    // console.log(this.$route.path);
+    // this.path = this.$route.path;
+    // this.$store.commit("editCurrentRouter", this.path); //更改仓库数据\
   }
+
+  
 };
 </script>
 
@@ -34,7 +46,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 45px; */
-  height:100%;
-  width:100%;
+  height: 100%;
+  width: 100%;
 }
 </style>
