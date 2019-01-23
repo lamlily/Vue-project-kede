@@ -5,6 +5,8 @@
     <Carlist></Carlist>
     <Car_footer></Car_footer>
     <Footer></Footer>
+    <!-- <BackTop></BackTop> -->
+
 
   </div>
 </template>
@@ -15,6 +17,7 @@ import Header from "../../commons/Header.vue";
 import Carlist from "./Carlist.vue";
 import Car_footer from "./Car_footer.vue";
 import Footer from "../../commons/Footer.vue";
+// import BackTop from "../../commons/BackTop.vue";
 
 export default {
   name:"Car",

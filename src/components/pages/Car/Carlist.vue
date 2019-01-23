@@ -1,6 +1,6 @@
 <template>
   <div class="carlist">
-    <div class="gonggao"></div>
+    <div class="gonggao" ></div>
     <div class="ziying">
       <div class="settop">
         <span>可得自营</span>
@@ -253,10 +253,12 @@ export default {
 
 .carlist {
   background: #eee;
-  //   .margin(45, 0, 0, 0);
+    .margin(25, 0, 0, 0);
   .gonggao {
     .h(63);
     background: #fff;
+    // .fs(20);text-align:center;
+    // .lh(100);
   }
   .ziying {
     .margin(10, 0, 0, 0);
@@ -323,6 +325,9 @@ export default {
         }
       }
     }
+  }
+  .zenghuan{
+    .margin(0,0,150,0);
   }
 }
 </style>
