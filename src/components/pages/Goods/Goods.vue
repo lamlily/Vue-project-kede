@@ -2,20 +2,18 @@
   <div class="goods">
     <Header title="毒物"></Header>
     <goodNav></goodNav>
-    <GoodList ></GoodList>
-    <!-- <Ceshi2></Ceshi2> -->
+    <!-- <GoodList ></GoodList> -->
+    <GoodList2 ></GoodList2>
     <!-- <Ceshi></Ceshi> -->
-    <!-- 填充作用，无其他用处 -->
-    <!-- <div class="kong"></div> -->
+    
   </div>
 </template>
 <script>
-import GoodNav from "./GoodNav.vue";
-import GoodList from "./GoodList.vue";
-
-import Ceshi from "./ceshi.vue";
-import Ceshi2 from "./ceshi2.vue";
-import Header from "../../commons/Header";
+import GoodNav from "./GoodNav.vue";//导航
+import GoodList from "./GoodList.vue";//普通布局
+import GoodList2 from "./GoodList2.vue";//移动端瀑布流布局
+import Ceshi from "./ceshi.vue";//PC端瀑布流布局
+import Header from "../../commons/Header";//头部
 export default {
   data() {
     return {
@@ -27,7 +25,7 @@ export default {
     GoodList,
     GoodNav,
     Ceshi,
-    Ceshi2
+    GoodList2
 
   },
   
@@ -35,8 +33,5 @@ export default {
 </script>
 <style lang="less" scoped>
 @import "../../../styls/mixin.less";
-// .kong{
-//   .w(375);
-//   .h(60);
-// }
+
 </style>

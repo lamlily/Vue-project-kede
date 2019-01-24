@@ -1,4 +1,5 @@
 <template>
+  <!-- PC端瀑布流布局 -->
   <!-- 简单瀑布流实现，还需改为ref属性，优化节点获取的操作，优化代码 -->
   <!--
   瀑布流布局
@@ -27,8 +28,7 @@
 </template>
 <script>
 export default {
-  components: {
-  },
+  components: {},
   data() {
     return {
       imgsArr: [
@@ -76,17 +76,17 @@ export default {
     waterfall() {
       let wrap = document.querySelector("#wrap");
       console.log(wrap);
-      
+
       let items = wrap.children; //子元素数量
 
-      let itemWidth = items[0].offsetWidth;//元素宽度
+      let itemWidth = items[0].offsetWidth; //元素宽度
       //1.计算列数及列间距
-      let cols = parseInt(window.innerWidth / itemWidth);//列数
-      let gap = (window.innerWidth % itemWidth) / (cols + 1);//间距
+      let cols = parseInt(window.innerWidth / itemWidth); //列数
+      let gap = (window.innerWidth % itemWidth) / (cols + 1); //间距
       let pos = [];
       for (var i = 0; i < cols; i++) {
         var obj = {
-          left: gap * (i + 1) + itemWidth * i,//记录第一行的left、top数据
+          left: gap * (i + 1) + itemWidth * i, //记录第一行的left、top数据
           top: gap
         };
         pos.push(obj);
@@ -94,17 +94,19 @@ export default {
       console.log(pos);
       // 遍历数组，
       for (let i = 0; i < items.length; i++) {
-        let currentImg = items[i].children[1].children[0];//得到img元素节点
-        currentImg.onload = function() {//图片加载完成后再计算
+        let currentImg = items[i].children[1].children[0]; //得到img元素节点
+        currentImg.onload = function() {
+          //图片加载完成后再计算
           var minIdx = 0;
-          var minTop = pos[0].top;//假设第一项为最小值
+          var minTop = pos[0].top; //假设第一项为最小值
           for (var j = 0; j < pos.length; j++) {
-            if (pos[j].top < minTop) {//如果这个值比最小值小则重把这个值赋值为最小值，同时记录列数
+            if (pos[j].top < minTop) {
+              //如果这个值比最小值小则重把这个值赋值为最小值，同时记录列数
               minIdx = j;
               minTop = pos[j].top;
             }
           }
-          items[i].style.left = pos[minIdx].left + "px";//设置定位位置
+          items[i].style.left = pos[minIdx].left + "px"; //设置定位位置
           items[i].style.top = minTop + "px";
           //更新top值
           pos[minIdx].top += items[i].offsetHeight + gap;
