@@ -3,6 +3,7 @@
     <Header title="毒物"></Header>
     <goodNav></goodNav>
     <GoodList ></GoodList>
+    <!-- <Ceshi2></Ceshi2> -->
     <!-- <Ceshi></Ceshi> -->
     <!-- 填充作用，无其他用处 -->
     <!-- <div class="kong"></div> -->
@@ -13,8 +14,8 @@ import GoodNav from "./GoodNav.vue";
 import GoodList from "./GoodList.vue";
 
 import Ceshi from "./ceshi.vue";
+import Ceshi2 from "./ceshi2.vue";
 import Header from "../../commons/Header";
-
 export default {
   data() {
     return {
@@ -25,7 +26,9 @@ export default {
     Header,
     GoodList,
     GoodNav,
-    Ceshi
+    Ceshi,
+    Ceshi2
+
   },
   
 };

@@ -11,9 +11,15 @@ import './styls/reset.less';
 import '../node_modules/animate.css/animate.css'
 Vue.config.productionTip = false
 
+
 // 引入axios为了发起ajax请数据，第三方插件；把axios挂在到父类圆形脸上，所有子类组件都可以继承该属性；（不用每个组件都写调用）
 import Axios from 'axios'
 Vue.prototype.$axios = Axios
+Axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';//全局更改
+import qs from "qs";//配合qs模块转化post请求的参数，记得先npm install qs
+// Vue.prototype.$axios = axios;
+Vue.prototype.$qs = qs;
+
 
 // 创建过滤器，注册(一定要返回数据return)（日期，年月日）
 // how引用（要替换的数据 |  注册的过滤器）

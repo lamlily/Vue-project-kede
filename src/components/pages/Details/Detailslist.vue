@@ -119,9 +119,9 @@
           <ul class="goods goods0">
             <li>
               <div class="user">
-                <div class="utop">
-                  <img src="https://pic.keede.com//app/images/sinaimg.gif" alt class="touxiang">
-                  <p>1***A</p>
+                <div class="utop" >
+                  <img   style="margin-right:70px;"src="https://pic.keede.com//app/images/sinaimg.gif" alt class="touxiang">
+                  <p  style="margin-right:60px;">1***A</p>
                   <p>2019/1/21 16:43:46</p>
                 </div>
                 <div class="umid">*****</div>
@@ -443,7 +443,7 @@ export default {
               border: 1px solid #ccc;
               display: flex;
               justify-content: space-around;
-              .margin(0, 20, 0, 20);
+              // .margin(0, 20, 0, 20);
               .h(38);
               .lh(38);
             }
@@ -456,14 +456,16 @@ export default {
       .h(286);
       .fs(16);
       // background: red;
-      .margin(20, 0, 20, 20);
+      .margin(10, 0, 10, 20);
       border-bottom: 1px solid #ddd;
       .ptop {
         display: flex;
         .h(50);
         .lh(50);
-        justify-content: space-around;
+        justify-content: space-between;
         background: #fff;
+      // border-bottom: 1px solid #ddd;
+
         span {
           .lh(84);
           color: #f06;
@@ -491,12 +493,14 @@ export default {
           .margin(20, 0, 0, 0);
         }
       }
+     
       ul.goods {
         // .h(189);
         display: flex;
-        justify-contert: space-between;
+        justify-content: space-between;
         background: #fff;
         .lh(30);
+        .margin(30,0,0,0);
         li {
           .user {
             .utop {

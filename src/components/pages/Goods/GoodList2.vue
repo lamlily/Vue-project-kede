@@ -2,7 +2,7 @@
   <div class="goodlist">
     <ul>
       <li class="li_item" v-for="(item,idx) in goodsList" :key="idx">
-        <div class="img_top">< img :src="path+item.imgUrl"></div>
+        <div class="img_top"><img :src="path+item.imgUrl"></div>
         <div class="p_midd">
           <p v-text="item.goodIntro"></p>
         </div>

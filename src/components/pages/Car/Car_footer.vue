@@ -1,5 +1,5 @@
 <template>
-    <div class="Details_footer" >
+    <div class="Car_footer" >
        <ul class="tab1">
            <li 
            v-for="(item,index) in tablist"
@@ -35,8 +35,8 @@
         components:{},
         data(){
             return{
-              tablist:[{name:'首页',path:"/home",icon:"fa fa-university"},{name:'收藏',path:"",icon:"fa fa-heart-o"},{name:'购物车',path:"/car",icon:"fa fa-shopping-bag"}],
-              tablist2:[{name:'加入购物车',path:'',icon:"fa fa-shopping-cart"}],
+              tablist:[{name:"总金额￥606.00 已优惠￥108.00"},{name:"合计￥498.00（不含运费）"}],
+              tablist2:[{name:'结算（6）',path:''}],
               selInit:""
             }
         },
@@ -66,12 +66,12 @@
 // 引入配置样式总模块，固定写法
 @import url('../../../styls/main.less');
 
-.Details_footer{
+.Car_footer{
     .w(375);
-    .h(56);
+    .h(70);
     z-index: 1000;
     position:fixed;
-    bottom:0;
+    bottom:55px;
     left:0;
     right:0;
     background: #000;
@@ -81,19 +81,9 @@
     
 
     ul{
-        width:50%;
-        display:flex;
-        justify-content:space-between;
+        .padding(0,10,0,20);
         li{
-            // .w(20);
-            flex:1;
             .fs(12);
-            display:flex;
-            flex-direction:column;
-            justify-content:center;
-            text-align: center;
-            .padding(5,5,5,5);
-            margin-top: 5px;
             i{
                 .fs(22);
                 color:#999;
@@ -102,9 +92,11 @@
         }
     }
     ul.tab2{
+        width:33.33%;
         background: #8FC320;
         border-top:1px solid #8FC320;
-       
+       .lh(70);
+       text-align:center;
         li{
             flex-direction: row;
             justify-content: center;
@@ -116,12 +108,10 @@
             }
         }
     }
-    
-
 }
 .active{
     // background: #ff0066;
-    color:#8FC320;
+    color:#000;
 }
 
     

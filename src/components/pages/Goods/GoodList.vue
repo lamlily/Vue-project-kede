@@ -1,10 +1,8 @@
 <template>
   <div class="goodlist">
-    <ul id="goodUl">
-      <li class="li_item" v-for="(item,idx) in goodsList" v-water :key="idx" ref="li">
-        <div class="img_top">
-          <img :src="path+item.imgUrl">
-        </div>
+    <ul>
+      <li class="li_item" v-for="(item,idx) in goodsList" :key="idx">
+        <div class="img_top"><img :src="path+item.imgUrl"></div>
         <div class="p_midd">
           <p v-text="item.goodIntro"></p>
         </div>
@@ -23,68 +21,24 @@
   </div>
 </template>
 <script>
-//引入瀑布流组件
-// import vueWaterfallEasy from "vue-waterfall-easy";
 export default {
   data() {
     return {
       goodsList: [],
-      path: "",
-      lists: []
+      path: ""
     };
   },
-  components: {},
-  directives: {
-    water: {
-      bind: function(el, binding, vnode) {},
-      //被绑定元素所在的模板更新时调用，而不论绑定值是否变化
-      update: function(el, binding, vnode) {},
-      //被绑定元素所在模板完成一次更新周期时调用。
-      componentUpdated: function(el, binding, vnode) {}
-    }
-    // 这里将会被 `bind` 和 `update` 调用
-  },
-  methods: {
-    //瀑布流
-    waterfall(items) {
-      const leftHeight = this.$refs.left.clientHeight;
-      const rightHeight = this.$refs.right.clientHeight;
-      let item = this.data.shift();
-      console.log(leftHeight);
-      console.log(rightHeight);
-      if (item == null) {
-        return;
-      }
-      if (leftHeight <= rightHeight) {
-        this.leftItems.push(item);
-      } else {
-        this.rightItems.push(item);
-      }
-      this.$nextTick(function() {
-        this.waterfall();
-      });
-    }
-  },
+  methods: {},
   created() {
     //从仓库获取数据
     this.goodsList = this.$store.getters.getGoodType.goodsList;
     this.path = this.$store.getters.getRootPath;
-  },
-  mounted() {},
-  updated() {
-    //  this.waterfall();
-    console.log(this.$refs);
-    this.waterfall(this.$refs);
   },
   watch: {
     "$store.getters.getGoodType.goodsList": function() {
       //你需要执行的代码
       this.goodsList = this.$store.getters.getGoodType.goodsList;
       console.log(this.goodsList);
-    },
-    goodsList: function() {
-      //数据变化，执行瀑布流函数
-      // console.log(this);
     }
   }
 };
@@ -98,20 +52,11 @@ export default {
     flex-wrap: wrap;
     justify-content: space-around;
     background: #eee;
-
-    width: 100%;
-    margin: 0 auto;
-    position: relative;
     .li_item {
-      width: 43%;
+      width: 48%;
       border: 1px solid #ccc;
-      // .margin(10, 0, 10, 0);
+      .margin(10, 0, 10, 0);
       background: #fff;
-
-      .padding(4, 4, 4, 4);
-      position: absolute;
-      left: 0;
-      top: 0;
       .img_top {
         img {
           width: 100%;

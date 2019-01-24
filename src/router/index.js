@@ -23,7 +23,6 @@ import Classify from "../components/pages/Classify/Classify.vue"
 import Login from "../components/pages/My/Login.vue"
 import Myinfo from "../components/pages/My/Myinfo.vue"
 
-import Search from "../components/pages/Search/Search.vue"
 //引入我的页面下的子页面Myinfo个人信息页面
 import My from "../components/pages/My/My.vue"
 import Car from "../components/pages/Car/Car.vue"
@@ -42,7 +41,6 @@ let router = new VueRouter({
             children: [
                 { path: '/home', component: Home, name: 'Home' },
                 { path: '/classify', component: Classify, name: 'Classify' },
-                { path: '/search', component: Search, name: 'Search' },
                 { path: '/car', component: Car, name: 'Car' },
                 { path: '/my', component: My, name: 'My' },
                 { path: '/goods', component: Goods, name: 'Goods' }
