@@ -13,7 +13,9 @@ const store = new Vuex.Store({
     
     // 毒物页之间的兄弟传参
     goodType:"",
-    goodsList:[]
+    goodsList:[],
+    // 判断登录状态
+    isLogin:false
     
   },
   // 修改数据的方法 真正改数据的操作
@@ -27,6 +29,10 @@ const store = new Vuex.Store({
       state.galleryImgUrl = obj.galleryImgUrl;
       state.galleryStatus = obj.galleryStatus;
     },
+    editisLogin(state,obj){
+      state.isLogin = obj.isLogin;
+    }
+
     
     
   },
