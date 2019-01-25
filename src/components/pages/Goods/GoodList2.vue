@@ -2,7 +2,7 @@
 <template>
   <div class="goodlist">
     <ul id="wrap" ref="wrap">
-      <li class="li_item" v-for="(item,idx) in goodsList" :key="idx">
+      <li class="li_item" v-for="(item,idx) in goodsList" :key="idx" @click="goPage(item.goodId)">
         <div class="img_top">
           <img :src="path+item.imgUrl" ref="img">
         </div>
@@ -67,6 +67,11 @@ export default {
         //设置父元素高度
         wrap.style.height = pos[minIdx].top + 70 + "px";
       }
+    },
+    goPage(id){
+      console.log(id)
+      //跳转到商品详情页
+      this.$router.push('/details');
     }
   },
   created() {
