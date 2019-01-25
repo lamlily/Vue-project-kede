@@ -2,7 +2,7 @@
 <template>
     <div class="details">
         <!-- 我是Details.vue -->
-        <Header>商品详情</Header>
+        <Header title="商品详情"></Header>
 
         <detailslist></detailslist>
 

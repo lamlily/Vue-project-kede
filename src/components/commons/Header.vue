@@ -51,7 +51,7 @@ export default {
         break;
       case "商品详情":
         this.className = "fa fa-angle-left";
-        this.show2 = true;
+        // this.show2 = true;
         break;
     }
   }

@@ -1,7 +1,7 @@
 <template>
   <div class="car">
 
-    <Header></Header>
+    <Header title="购物车"></Header>
     <Carlist></Carlist>
     <Car_footer></Car_footer>
     <Footer></Footer>

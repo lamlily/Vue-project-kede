@@ -2,15 +2,18 @@
   <div class="goods">
     <Header title="毒物"></Header>
     <goodNav></goodNav>
-    <GoodList ></GoodList>
-    <BackTop></BackTop>
+    <!-- <GoodList ></GoodList> -->
+    <GoodList2 ></GoodList2>
+    <!-- <Ceshi></Ceshi> -->
+    
   </div>
 </template>
 <script>
-import GoodNav from "./GoodNav.vue";
-import GoodList from "./GoodList.vue";
-import Header from "../../commons/Header";
-import BackTop from "../../commons/BackTop.vue";
+import GoodNav from "./GoodNav.vue";//导航
+import GoodList from "./GoodList.vue";//普通布局
+import GoodList2 from "./GoodList2.vue";//移动端瀑布流布局
+import Ceshi from "./ceshi.vue";//PC端瀑布流布局
+import Header from "../../commons/Header";//头部
 export default {
   data() {
     return {
@@ -21,10 +24,14 @@ export default {
     Header,
     GoodList,
     GoodNav,
-    BackTop
+    Ceshi,
+    GoodList2
+
   },
   
 };
 </script>
 <style lang="less" scoped>
+@import "../../../styls/mixin.less";
+
 </style>
