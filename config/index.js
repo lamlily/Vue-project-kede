@@ -26,7 +26,7 @@ module.exports = {
 
     // Various Dev Server settings
     // host: 'localhost', //本地路径
-    host: '47.93.0.253', // 上线路径
+    host: '0.0.0.0', // 上线路径
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: true,//自动开启默认浏览器
     errorOverlay: true,
