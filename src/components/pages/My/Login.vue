@@ -25,12 +25,12 @@
         <span class="getcode2" :class="selInit=='toregister'?'':'hide'">获取验证码</span>
       </span>
       <span></span>
-      <input type="button" value="提交" class="submit" @click="getData">
+      <input type="button" value="提交" class="submit" @click="getData" style="margin-left:25px;">
       <span class="xieyi">
         点击提交表示已同意
         <a class="xieyi" href="#">《可得用户协议》</a>
       </span>
-      <span>———————————&nbsp;&nbsp;第三方登录&nbsp;&nbsp;—————————</span>
+      <span style="margin-left:25px;">—————————&nbsp;&nbsp;第三方登录&nbsp;&nbsp;——————————</span>
       <img src="../../../assets/pay.jpg" alt>
     </form>
   </div>
@@ -160,13 +160,13 @@ form {
   input.uname {
     // .w(150);
     .h(44);
-    .margin(0, 10, 0, 18);
+    .margin(0, 10, 0, 25);
   }
   input.getcode {
-    .margin(0, 20, 0, 18);
+    .margin(0, 20, 0, 25);
   }
-  input:nth-of-type(4) {
-    .margin(0, 0, 0, 7);
+  input.submit{
+    .margin(0, 0, 0, 15);
   }
   p:last-of-type {
     .w(330);
@@ -192,7 +192,7 @@ form {
     .padding(0, 95, 0, 20);
   }
   input:last-of-type {
-    .margin(20, 5, 0, 18);
+    .margin(20, 5, 0, 20);
     background: #89b929;
     color: #fff;
     .fs(16);
@@ -256,4 +256,5 @@ form.mima {
     .h(194);
   }
 }
+
 </style>
