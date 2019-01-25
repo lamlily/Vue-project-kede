@@ -66,8 +66,8 @@
 @import url('../../styls/main.less');
     .contain{
         position:fixed;
-        right:20px;
-        bottom:55px;
+        .right(20);
+        .bottom(60);
         .w(50);
         .h(50);
         border-radius:50%;

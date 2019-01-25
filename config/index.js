@@ -11,17 +11,24 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-        '/api':{
-            target:'https://m.maizuo.com/',
-            changeOrigin:true,
-            pathRewrite:{'^/api':''}
-        }
-    },
+      '/api':{ //小暗号
+          // http://m.muyingzhijia.com
+          target:'http://goods.api.muyingzhijia.com/',//目标服务器
+          changeOrigin:true,//是否允许代理
+          pathRewrite:{'^/api':''}// 匹配请求接口
+      },
+      '/store':{ //小暗号
+          target:'http://m.muyingzhijia.com/',//目标服务器
+          changeOrigin:true,//是否允许代理
+          pathRewrite:{'^/store':''}// 匹配请求接口
+      }
+  },
 
     // Various Dev Server settings
-    host: 'localhost', // can be overwritten by process.env.HOST
+    // host: 'localhost', //本地路径
+    host: '47.93.0.253', // 上线路径
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
-    autoOpenBrowser: true,
+    autoOpenBrowser: true,//自动开启默认浏览器
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
