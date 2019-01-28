@@ -26,7 +26,7 @@ module.exports = {
 
     // Various Dev Server settings
     // host: 'localhost', //本地路径
-    host: '0.0.0.0', // 上线路径
+    host: '0.0.0.0', // 上线路径，打开网页时需修改为本地IP（本地服务器为127.0.0.1   远程服务器为47.93.0.253）
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: true,//自动开启默认浏览器
     errorOverlay: true,

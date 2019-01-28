@@ -58,8 +58,9 @@ new Vue({
     el: '#app',
     router,
     store,
-    components: { App },
-    template: '<App/>',
+     // 把App组件挂载到#app的这个节点上
+    render: h => h('router-view')
+    
     // watch: {
     //     //监听路由变化
     //     $route(to, from) {

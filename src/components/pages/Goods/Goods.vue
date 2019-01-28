@@ -3,9 +3,11 @@
     <Header title="毒物"></Header>
     <goodNav></goodNav>
     <!-- <GoodList ></GoodList> -->
+     <transition name="fade">
     <GoodList2 ></GoodList2>
+    </transition>
     <!-- <Ceshi></Ceshi> -->
-    
+     
   </div>
 </template>
 <script>

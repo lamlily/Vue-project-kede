@@ -32,7 +32,7 @@ import Goods from "../components/pages/Goods/Goods.vue"
 // 2.设置路由 配置
 let router = new VueRouter({
     routes: [
-        { path: '/', redirect: 'home' }, //重定向
+        // { path: '/', redirect: 'home' }, //重定向
         //把App.vue作为一个页面，根据子路由来切换相应的模块
         {
             path: '/app',
@@ -40,6 +40,7 @@ let router = new VueRouter({
             name: 'App',
             children: [
                 { path: '/home', component: Home, name: 'Home' },
+                //path 的'/home'与'home'的区别，加了斜杠会把app省略
                 { path: '/classify', component: Classify, name: 'Classify' },
                 { path: '/car', component: Car, name: 'Car' },
                 { path: '/my', component: My, name: 'My' },
@@ -81,4 +82,3 @@ router.beforeEach((to, from, next) => {
 // 抛出路由
 export default router
 
-// 3.挂载路由App.vue

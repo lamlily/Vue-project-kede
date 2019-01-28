@@ -11,7 +11,6 @@
 <script>
 //引入底部组件
 import Xfooter from "./components/commons/Footer.vue";
-import Home from "./components/pages//Home/Home.vue";
 
 export default {
   name: "App",
@@ -22,8 +21,8 @@ export default {
   },
   components: {
     Xfooter,
-    Home
   },
+  
   mounted() {
     // console.log(this);
   },
