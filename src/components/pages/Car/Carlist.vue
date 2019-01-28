@@ -1,6 +1,6 @@
 <template>
   <div class="carlist">
-    <div class="gonggao" ></div>
+    <div class="gonggao"></div>
     <div class="ziying">
       <div class="settop">
         <span>可得自营</span>
@@ -19,17 +19,17 @@
               <p>
                 <span>光度-1.25</span>
                 <span class="caozuo">
-                  <span>-</span>
-                  <span>2</span>
-                  <span>+</span>
+                  <span class="sub" @click="sub" value="-">-</span>
+                  <span><input class="qty" value="1" v-model="num"></input></span>
+                  <span value="+" class="add" @click="add">+</span>
                 </span>
               </p>
               <p>
                 <span>光度-1.25</span>
                 <span class="caozuo">
-                  <span>-</span>
-                  <span>1</span>
-                  <span>+</span>
+                  <span class="sub" @click="sub0" value="-">-</span>
+                  <span><input class="qty" value="1" v-model="num0"></input></span>
+                  <span value="+" class="add" @click="add0">+</span>
                 </span>
               </p>
             </span>
@@ -48,17 +48,17 @@
               <p>
                 <span>光度-1.25</span>
                 <span class="caozuo">
-                  <span>-</span>
-                  <span>2</span>
-                  <span>+</span>
+                  <span class="sub" @click="sub" value="-">-</span>
+                  <span><input class="qty" value="1" v-model="num"></input></span>
+                  <span value="+" class="add" @click="add">+</span>
                 </span>
               </p>
               <p>
                 <span>光度-1.25</span>
                 <span class="caozuo">
-                  <span>-</span>
-                  <span>1</span>
-                  <span>+</span>
+                  <span class="sub" @click="sub0" value="-">-</span>
+                  <span><input class="qty" value="1" v-model="num0"></input></span>
+                  <span value="+" class="add" @click="add0">+</span>
                 </span>
               </p>
             </span>
@@ -77,17 +77,17 @@
               <p>
                 <span>光度-1.25</span>
                 <span class="caozuo">
-                  <span>-</span>
-                  <span>2</span>
-                  <span>+</span>
+                  <span class="sub" @click="sub" value="-">-</span>
+                  <span><input class="qty" value="1" v-model="num"></input></span>
+                  <span value="+" class="add" @click="add">+</span>
                 </span>
               </p>
               <p>
                 <span>光度-1.25</span>
                 <span class="caozuo">
-                  <span>-</span>
-                  <span>1</span>
-                  <span>+</span>
+                  <span class="sub" @click="sub0" value="-">-</span>
+                  <span><input class="qty" value="1" v-model="num0"></input></span>
+                  <span value="+" class="add" @click="add0">+</span>
                 </span>
               </p>
             </span>
@@ -241,9 +241,30 @@ import Vue from "vue";
 
 export default {
   name: "Carlist",
-  data() {
-    return {};
-  }
+    data() {
+      return {
+        num: 1,
+        num0: 1
+      };
+    },
+    methods: {
+      add(){
+        this.num++
+        console.log(this.num);
+      },
+      sub(){
+        this.num--
+        console.log(this.num);
+      },
+      add0(){
+        this.num0++
+        console.log(this.num0);
+      },
+      sub0(){
+        this.num0--
+        console.log(this.num0);
+      }
+    }
 };
 </script>
 
@@ -253,7 +274,7 @@ export default {
 
 .carlist {
   background: #eee;
-    .margin(25, 0, 0, 0);
+  .margin(25, 0, 0, 0);
   .gonggao {
     .h(63);
     background: #fff;
@@ -308,26 +329,29 @@ export default {
           }
           span.choose {
             .h(38);
-            
+
             p {
-                .margin(0,0,10,0);
+              .margin(0, 0, 10, 0);
               span.caozuo {
-                  .margin(0,0,0,110);
+                .margin(0, 0, 0, 110);
                 span {
                   border: 1px solid #ccc;
-                  .margin(0,5,0,0);
-                  .padding(0,3,0,3);
+                  .margin(0, 5, 0, 0);
+                  .padding(0, 3, 0, 3);
+                  input{
+                    .w(10);
+                    .h(20);
+                  }
                 }
               }
             }
-
           }
         }
       }
     }
   }
-  .zenghuan{
-    .margin(0,0,150,0);
+  .zenghuan {
+    .margin(0, 0, 150, 0);
   }
 }
 </style>
