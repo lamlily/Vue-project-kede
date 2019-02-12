@@ -38,6 +38,7 @@
 
 
 <script >
+import qs from "qs";
 export default {
   name: "Login",
   components: {},
@@ -63,32 +64,50 @@ export default {
 
     getData() {
       if (this.isTrue == true) {
-        console.log(1111111111111);
-
         if (this.password != null) {
-          console.log(2222222222222);
-          
           var params = new URLSearchParams();
           params.append("uname", this.username);
           params.append("getcode", this.password);
-          console.log(8888888);
+          // this.$axios
+          //   .get(
+          //     `${this.rootPath}/users/login`,
+          //     // params)
+          //     {
+          //       params: {
+          //         user: this.user,
+          //         password: this.password
+          //       }
+          //     }
+          //   )
+          //   .then(res => {
+          //     this.goods = res.data.data;
+          //     console.log(res);
+          //     if (res.data.status == "success") {
+          //       location.href = "/";
+          //       let isLogin = true;
+          //     } else {
+          //       alert("密码错误");
+          //     }
+          //   })
+          //   .catch(err => {
+          //     console.log(err);
+          //   });
+
+          //post请求   利用qs模块实现post请求跨域问题
           this.$axios
-            .get(
+            .post(
               `${this.rootPath}/users/login`,
-              // params)
-              {
-                params: {
-                  user: this.user,
-                  password: this.password
-                }
-              }
+              qs.stringify({
+                user: this.user,
+                password: this.password
+              })
             )
             .then(res => {
               this.goods = res.data.data;
-              console.log(res);
               if (res.data.status == "success") {
-                location.href = "/";
-                let isLogin = true;
+                this.$router.push("/home");
+                //修改仓库中的状态值
+                this.$store.commit("editisLogin", { isLogin: true });
               } else {
                 alert("密码错误");
               }
@@ -99,18 +118,6 @@ export default {
         }
       }
     }
-
-    //   this.$axios({
-    //     method: "post",
-    //     // headers: { "content-type": "application/x-www-form-urlencoded" },//局部更改
-    //     url: "http://47.93.0.253:3000/users/login",
-    //     data: this.$qs.stringify({
-    //       name: "lemon"
-    //     })
-    //   }).then(res => {
-    //     console.log(res);
-    //   });
-    // }
   },
   created() {
     this.rootPath = this.$store.getters.getRootPath;
@@ -165,7 +172,7 @@ form {
   input.getcode {
     .margin(0, 20, 0, 25);
   }
-  input.submit{
+  input.submit {
     .margin(0, 0, 0, 15);
   }
   p:last-of-type {
@@ -256,5 +263,4 @@ form.mima {
     .h(194);
   }
 }
-
 </style>

@@ -9,7 +9,6 @@
     <Homelist type="护理用品"></Homelist>
     <BackTop></BackTop>
   </div>
-  
 </template>
 
 
@@ -19,14 +18,13 @@ import Banner from "../../commons/Banner.vue";
 import Search from "../../commons/Search.vue";
 import Home_pinpai from "./Home_pinpai";
 import Homelist from "./Homelist";
-import BackTop from '../../commons/BackTop.vue'
+import BackTop from "../../commons/BackTop.vue";
 export default {
   name: "Home",
   // 注册组件
-  components: { Search,Banner,Home_pinpai,Homelist ,BackTop},
+  components: { Search, Banner, Home_pinpai, Homelist, BackTop },
   data() {
-    return {
-    }
+    return {};
   }
 };
 </script>
@@ -34,5 +32,4 @@ export default {
 
 <style lang="less" scoped>
 @import url("../../../styls/main.less");
-
 </style>

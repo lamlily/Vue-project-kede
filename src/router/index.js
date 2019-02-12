@@ -49,7 +49,7 @@ let router = new VueRouter({
         },
         //根据相应的路由进入相应页面
         { path: '/login', component: Login, name: 'Login' },
-        {path: "/myinfo",component:Myinfo,name :"Myinfo"},
+        { path: "/myinfo", component: Myinfo, name: "Myinfo" },
         { path: '/details', component: Details, name: 'Details' }
     ]
 })
@@ -65,20 +65,19 @@ router.beforeEach((to, from, next) => {
     //   });
     // let token = localStorage.getItem("token");
     // console.log(to.path)
-        // if (to.path == '/car' || to.path == 'geren') { //应该先判断token是否验证成功   //注意无限循环
-        //     router.push({
-        //         name: "Login"
-        //     })
-        // } else {
-        //     next()
-        // }
-        
+    // if (to.path == '/car' || to.path == 'geren') { //应该先判断token是否验证成功   //注意无限循环
+    //     router.push({
+    //         name: "Login"
+    //     })
+    // } else {
+    //     next()
+    // }
+
     next();
     // 关闭加载状态
-    
+
 
 })
 
 // 抛出路由
 export default router
-
