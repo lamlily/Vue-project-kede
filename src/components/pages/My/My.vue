@@ -21,7 +21,8 @@ export default {
     //2.is切换组件
     //3.嵌套路由
     // 获取仓库中的状态值
-    let isLogin = this.$store.getters.getIsLogin;
+    // let isLogin = this.$store.getters.getIsLogin;
+    let isLogin = localStorage.getItem("isLogin");
     if (isLogin) {
       this.$router.replace("/myinfo");
     } else {

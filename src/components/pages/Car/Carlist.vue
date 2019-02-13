@@ -20,7 +20,10 @@
                 <span>光度-1.25</span>
                 <span class="caozuo">
                   <span class="sub" @click="sub" value="-">-</span>
-                  <span><input class="qty" value="1" v-model="num"></input></span>
+                  <span>
+                    <input class="qty" value="1" v-model="num">
+                  </span>
+                  
                   <span value="+" class="add" @click="add">+</span>
                 </span>
               </p>
@@ -28,7 +31,9 @@
                 <span>光度-1.25</span>
                 <span class="caozuo">
                   <span class="sub" @click="sub0" value="-">-</span>
-                  <span><input class="qty" value="1" v-model="num0"></input></span>
+                  <span>
+                    <input class="qty" value="1" v-model="num0">
+                  </span>
                   <span value="+" class="add" @click="add0">+</span>
                 </span>
               </p>
@@ -49,7 +54,9 @@
                 <span>光度-1.25</span>
                 <span class="caozuo">
                   <span class="sub" @click="sub" value="-">-</span>
-                  <span><input class="qty" value="1" v-model="num"></input></span>
+                  <span>
+                    <input class="qty" value="1" v-model="num">>
+                  </span>
                   <span value="+" class="add" @click="add">+</span>
                 </span>
               </p>
@@ -57,7 +64,9 @@
                 <span>光度-1.25</span>
                 <span class="caozuo">
                   <span class="sub" @click="sub0" value="-">-</span>
-                  <span><input class="qty" value="1" v-model="num0"></input></span>
+                  <span>
+                    <input class="qty" value="1" v-model="num0">>
+                  </span>
                   <span value="+" class="add" @click="add0">+</span>
                 </span>
               </p>
@@ -78,7 +87,9 @@
                 <span>光度-1.25</span>
                 <span class="caozuo">
                   <span class="sub" @click="sub" value="-">-</span>
-                  <span><input class="qty" value="1" v-model="num"></input></span>
+                  <span>
+                    <input class="qty" value="1" v-model="num">>
+                  </span>
                   <span value="+" class="add" @click="add">+</span>
                 </span>
               </p>
@@ -86,7 +97,9 @@
                 <span>光度-1.25</span>
                 <span class="caozuo">
                   <span class="sub" @click="sub0" value="-">-</span>
-                  <span><input class="qty" value="1" v-model="num0"></input></span>
+                  <span>
+                    <input class="qty" value="1" v-model="num0">>
+                  </span>
                   <span value="+" class="add" @click="add0">+</span>
                 </span>
               </p>
@@ -241,30 +254,30 @@ import Vue from "vue";
 
 export default {
   name: "Carlist",
-    data() {
-      return {
-        num: 1,
-        num0: 1
-      };
+  data() {
+    return {
+      num: 1,
+      num0: 1
+    };
+  },
+  methods: {
+    add() {
+      this.num++;
+      console.log(this.num);
     },
-    methods: {
-      add(){
-        this.num++
-        console.log(this.num);
-      },
-      sub(){
-        this.num--
-        console.log(this.num);
-      },
-      add0(){
-        this.num0++
-        console.log(this.num0);
-      },
-      sub0(){
-        this.num0--
-        console.log(this.num0);
-      }
+    sub() {
+      this.num--;
+      console.log(this.num);
+    },
+    add0() {
+      this.num0++;
+      console.log(this.num0);
+    },
+    sub0() {
+      this.num0--;
+      console.log(this.num0);
     }
+  }
 };
 </script>
 
@@ -274,9 +287,9 @@ export default {
 
 .carlist {
   background: #eee;
-  .margin(25, 0, 0, 0);
+  // .margin(25, 0, 0, 0);
   .gonggao {
-    .h(63);
+    .h(33);
     background: #fff;
     // .fs(20);text-align:center;
     // .lh(100);
@@ -338,7 +351,7 @@ export default {
                   border: 1px solid #ccc;
                   .margin(0, 5, 0, 0);
                   .padding(0, 3, 0, 3);
-                  input{
+                  input {
                     .w(10);
                     .h(20);
                   }

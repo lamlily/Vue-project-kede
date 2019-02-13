@@ -32,4 +32,7 @@ export default {
 
 <style lang="less" scoped>
 @import url("../../../styls/main.less");
+.home {
+  .padding(45, 0, 0, 0);
+}
 </style>

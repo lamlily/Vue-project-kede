@@ -79,7 +79,7 @@ export default {
   .h(50);
   .w(375);
   .padding(20,10,20,10);
-  .margin(45,0,0,0);
+  // .margin(45,0,0,0);
   display: flex;
   justify-content: space-between;
   align-content: center;

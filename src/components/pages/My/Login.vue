@@ -107,7 +107,10 @@ export default {
               if (res.data.status == "success") {
                 this.$router.push("/home");
                 //修改仓库中的状态值
-                this.$store.commit("editisLogin", { isLogin: true });
+                // this.$store.commit("editisLogin", { isLogin: true });
+                //本地储存
+                localStorage.setItem("isLogin", true);
+                console.log(localStorage.getItem("isLogin"));
               } else {
                 alert("密码错误");
               }

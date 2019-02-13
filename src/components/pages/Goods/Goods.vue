@@ -30,4 +30,7 @@ export default {
 </script>
 <style lang="less" scoped>
 @import "../../../styls/mixin.less";
+.goods {
+  .padding(45, 0, 0, 0);
+}
 </style>

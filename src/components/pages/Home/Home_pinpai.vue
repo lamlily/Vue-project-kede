@@ -68,26 +68,26 @@ export default {
 <style lang="less" scoped>
 @import url("../../../styls/main.less");
 
-.home_pinpai{
-    ul{
-        display: flex;
-        justify-content: space-between;
-        flex-wrap:wrap;
-        li{
-            display: flex;
-            flex-direction:column;
-            justify-content: center;
-            align-items: center;
-            width:25%;
-            img{
-                width:70%;
-                .margin(15,0,15,0)
-            }
-            span{
-                .fs(14);
-                text-align:center;
-            }
-        }
+.home_pinpai {
+  ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    li {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 25%;
+      img {
+        width: 70%;
+        .margin(15, 0, 15, 0);
+      }
+      span {
+        .fs(14);
+        text-align: center;
+      }
     }
+  }
 }
 </style>
