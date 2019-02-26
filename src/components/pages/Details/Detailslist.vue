@@ -1,33 +1,13 @@
 
 <template>
-  <!-- <Details_header></Details_header> -->
   <div class="detailslist">
-    <!-- {{detailslist}} -->
     <div class="top">
-      <!-- <div class="turn"></div> -->
-      <div class="banner">
-        <!-- 复制swiper网站html代码到此处 -->
-        <div class="swiper-container">
-          <div class="swiper-wrapper">
-            <!-- 通过v-for循环动态生成数据 -->
-            <div class="swiper-slide">
-              <!-- <div class="swiper-slide" v-for="(item,index) in bannerlist" :key="index">  -->
-              <!--轮播图的图片 -->
-              <!-- <img :src="item.src" alt> -->
-              <img src="../../../assets/b1.jpg" alt>
-              <!-- <img src="../../../assets/b2.jpg" alt>
-              <img src="../../../assets/b3.jpg" alt>
-              <img src="../../../assets/b4.jpg" alt>
-              <img src="../../../assets/b5.jpg" alt>-->
-              <!-- 通过axios请求get获取到网站的图片 -->
-            </div>
-            <!-- <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>-->
-          </div>
-          <!-- 如果需要分页器 -->
-          <div class="swiper-pagination"></div>
-        </div>
-      </div>
+      <mt-swipe :auto="auto" :speed="speed" class="banner">
+        <mt-swipe-item class="banner-item" v-for="(item,idx) in imgurl" :key="idx">
+          <img class="img" :src="item" alt>
+        </mt-swipe-item>
+        <!-- <mt-swipe-item>32222</mt-swipe-item> -->
+      </mt-swipe>
     </div>
     <div class="nav">
       <ul>
@@ -63,7 +43,6 @@
             <i class="fa fa-heart-o"></i>
           </div>
         </div>
-
         <div class="set">
           <div class="settop">
             <span>套餐组合</span>
@@ -85,7 +64,6 @@
                 </span>
               </p>
             </div>
-
             <div class="setmain0">
               <img alt src="../../../assets/b3.jpg">
               <p class="main">
@@ -97,7 +75,6 @@
                 </span>
               </p>
             </div>
-
             <div class="setmain0">
               <img alt src="../../../assets/b4.jpg">
               <p class="main">
@@ -111,7 +88,6 @@
             </div>
           </div>
         </div>
-
         <div class="recommend">
           <div class="ptop">
             <p class="pinglun">评论</p>
@@ -119,9 +95,14 @@
           <ul class="goods goods0">
             <li>
               <div class="user">
-                <div class="utop" >
-                  <img   style="margin-right:70px;"src="https://pic.keede.com//app/images/sinaimg.gif" alt class="touxiang">
-                  <p  style="margin-right:60px;">1***A</p>
+                <div class="utop">
+                  <img
+                    style="margin-right:70px;"
+                    src="https://pic.keede.com//app/images/sinaimg.gif"
+                    alt
+                    class="touxiang"
+                  >
+                  <p style="margin-right:60px;">1***A</p>
                   <p>2019/1/21 16:43:46</p>
                 </div>
                 <div class="umid">*****</div>
@@ -138,7 +119,6 @@
             </li>
           </ul>
         </div>
-
         <div class="recommend">
           <ul class="goods goods0">
             <li>
@@ -164,7 +144,6 @@
             </li>
           </ul>
         </div>
-
         <div class="recommend">
           <div class="ptop">
             <p class="kefu">在线客服</p>
@@ -191,139 +170,70 @@
                 <p class="color">HAN RAZR -X9</p>
                 <P>￥169</P>
               </div>
-
               <div class="ptop"></div>
             </li>
           </ul>
         </div>
-
         <div class="goods_details"></div>
       </li>
     </ul>
   </div>
-
-  <!-- <Details_footer></Details_footer> -->
 </template>
-
-
 <script >
 //引入vue
 import Vue from "vue";
-//引入加载的字体图标mint-ui组件；
-// import {Toast} from 'mint-ui';
-// 引入swiper 轮播图插件
-import Swiper from "swiper";
-import { lazyload } from "mint-ui";
-//头部
-// import Details_header from "./Details_header.vue"
-//底部
-// import Details_footer from "./Details_footer.vue"
-
 export default {
   name: "Detailslist",
-  // components:{Details_header,Details_footer},
   data() {
     return {
-      detailslist: [],
-      bannerlist: [],
-      // { src: "../../../assets/b1.jpg" },
-      // { src: "../../../assets/b2.jpg" },
-      // { src: "../../../assets/b3.jpg" }
-
+      auto: 5000, //自动播放间隔时长
+      speed: 300, //动画持续时长
+      imgurl: [
+        require("../../../assets/b1.jpg"),
+        require("../../../assets/b2.jpg"),
+        require("../../../assets/b3.jpg")
+      ],
       navlist: [
         { icon: "fa fa-file-code-o ", title: "简介", path: "simpledesc" },
         { icon: "fa fa-picture-o", title: "详情", path: "detaildesc" },
         { icon: "fa fa-commenting-o", title: "评论", path: "commend" }
       ],
       selInit: "simpledesc",
-
-      //加载数据显示功能
-      loading: false,
-      // 加载过程中不让加载字体图标滚动，false为触发滚动。true为不能滚动，默认为false可以滚动
-
-      // 分页，默认为0;总页数为10
-      current: 0,
-      total: 10
     };
   },
   methods: {
     toggle(val) {
       this.selInit = val;
-    },
-    getData() {
-      // 因为页面到底会出现加载图标一直滚动因为距离一直在滚动的范围；因此请求数据前要先判断如果页数到了最后一页就不需要再次请求数据了
-      // if(this.current==this.total){
-      //     // 到底了提示已经到底了并移除
-      //     Toast({
-      //     message:"已经到底了...",//配置信息
-      //     position:'bottom',//距离，底部
-      // // 移除图标
-      //     duration:1000//5000多长时间消失，若为-1则不会自动关闭
-      // });
-      //     return false;
-      // }
-      // // 引入mint-ui中的toast组件（加载旋转字体图标）
-      // let toast = Toast({
-      //     message:"数据加载中...",//配置信息
-      //     // position:'bottom',//距离
-      //     iconClass: "fa fa-cog fa-spin",
-      //     // 'icon icon-success'，以上为到字体图标库找到的加载的菊花图（可换），只需要类名即可；一般还要配置一个类名fa-spin使用才可以转起来
-      //     duration:-1//5000多长时间消失，若为-1则不会自动关闭
-      // });
-      // // 触发请求，一旦在加载中时让loading为true即不滚动
-      // this.loading=true
-
-      // this.$axios.get(`/api/mobile/index.php?act=goods&op=goods_detail&goods_id=877779407&key=&dis_id=&client=wap`,{
-      let id = this.$route.params.id;
-    },
-    //banner
-    initSwiper() {
-      console.log(111);
-      var mySwiper = new Swiper(".swiper-container", {
-        // direction: 'vertical', // 垂直切换选项
-        loop: true, // 循环模式选项
-        autoplay: {
-          delay: 2500
-          // disableOnInteraction: false,
-        },
-        // 分页器
-        pagination: {
-          el: ".swiper-pagination"
-        }
-      });
     }
   },
-
-  created() {
-    this.getData();
-  }
+  created() {}
 };
 </script>
-
-
 <style lang="less" scoped>
 // 引入配置样式总模块，固定写法
 @import url("../../../styls/main.less");
-/*引入swiper 轮播图插件 样式*/
-@import url("../../../../node_modules/swiper/dist/css/swiper.min.css");
-
-.details {
+.detailslist {
+  //限制最大宽度
+  // max-width: @divMaxWidth;
+  // margin: @divMargin;
   .top {
     .w(375);
-    .h(375);
+    .h(245);
     .margin(45, 0, 0, 0);
     .turn {
       .h(36);
     }
     .banner {
-      .h(375);
-      // border:1px solid #ccc;
-      img {
-        .h(375);
+      .h(225);
+      .banner-item {
+        .h(225);
+        .img {
+          .w(375);
+          .h(245);
+        }
       }
     }
   }
-
   .nav {
     ul {
       .w(350);
@@ -332,7 +242,6 @@ export default {
       .fs(18);
       margin: 0 auto;
       border-bottom: 1px solid #ddd;
-
       li {
         .w(175);
         .h(52);
@@ -347,7 +256,6 @@ export default {
         border-bottom: 3px solid #8fc320;
         color: #8fc320;
         font-weight: bold;
-        // .fs(18);
       }
     }
     img.topimg {
@@ -355,12 +263,10 @@ export default {
       .h(194);
     }
   }
-
   .goodsInfo {
     .goodprice {
       display: flex;
       .margin(0, 0, 30, 0);
-
       .price {
         p {
           .margin(0, 10, 0, 0);
@@ -403,12 +309,10 @@ export default {
         .margin(10, 0, 0, 0);
       }
     }
-
     .set {
       .h(474);
       // .margin(0,0,10,0);
       border-bottom: 1px solid #ddd;
-
       img {
         .w(92);
         .h(92);
@@ -451,7 +355,6 @@ export default {
         }
       }
     }
-
     .recommend {
       .h(286);
       .fs(16);
@@ -464,12 +367,10 @@ export default {
         .lh(50);
         justify-content: space-between;
         background: #fff;
-      // border-bottom: 1px solid #ddd;
-
+        // border-bottom: 1px solid #ddd;
         span {
           .lh(84);
           color: #f06;
-
           i {
             .margin(0, 15, 0, 5);
             color: #000;
@@ -493,14 +394,13 @@ export default {
           .margin(20, 0, 0, 0);
         }
       }
-     
       ul.goods {
         // .h(189);
         display: flex;
         justify-content: space-between;
         background: #fff;
         .lh(30);
-        .margin(30,0,0,0);
+        .margin(30, 0, 0, 0);
         li {
           .user {
             .utop {
@@ -517,7 +417,6 @@ export default {
               .padding(0, 0, 0, 40);
             }
           }
-
           .pic {
             display: flex;
             img {
@@ -527,23 +426,20 @@ export default {
               background: #fff;
             }
           }
-           .pic0{
+          .pic0 {
             // display:flex;
-            img{
+            img {
               .w(162);
               .h(162);
             }
           }
-          
         }
-        li.others{
-          display:flex;
-          .margin(0,0,100,0);
-          border-bottom:1px solid #ccc;
-          .padding(0,0,10,0);
+        li.others {
+          display: flex;
+          .margin(0, 0, 100, 0);
+          border-bottom: 1px solid #ccc;
+          .padding(0, 0, 10, 0);
         }
-     
-
         p.color {
           color: #999;
           .padding(15, 0, 0, 0);

@@ -95,15 +95,20 @@ export default {
 @import url("../../../styls/main.less");
 .total {
   height: 100%;
+  @divMaxWidth: 750px;
+  @divMargin: 0 auto;
   .fenlei {
+    //外层盒子控制最大宽度
+    @divMaxWidth: 750px;
+    @divMargin: 0 auto;
     display: flex;
     justify-content: left;
     position: fixed;
     .top(45);
-    .left(0);
-    .right(0);
+    // .left(0);
+    // .right(0);
     .bottom(55);
-
+    width:750px;
     .left {
       overflow-y: auto;
       .w(100);
@@ -111,18 +116,14 @@ export default {
       background: #eee;
       // display: flex;
       // flex-direction: column;
-
       span {
         display: block;
         .fs(14);
         .h(50);
         .lh(50);
-
         text-align: center;
       }
-      // span:hover {
-      //   background: #fff;
-      // }
+
       span.active {
         background: #fff;
       }
@@ -130,7 +131,6 @@ export default {
     .right {
       //设置滚动条
       overflow-y: auto;
-
       .w(275);
       .right_div {
         .margin(15, 0, 15, 0);

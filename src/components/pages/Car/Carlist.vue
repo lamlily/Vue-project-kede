@@ -286,6 +286,9 @@ export default {
 @import url("../../../styls/main.less");
 
 .carlist {
+  //限制最大宽度
+  max-width: @divMaxWidth;
+  margin: @divMargin;
   background: #eee;
   // .margin(25, 0, 0, 0);
   .gonggao {

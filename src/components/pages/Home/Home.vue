@@ -7,11 +7,9 @@
     <Homelist type="隐形眼镜"></Homelist>
     <Homelist type="彩色眼镜"></Homelist>
     <Homelist type="护理用品"></Homelist>
-    <BackTop></BackTop>
+    <!-- <BackTop></BackTop> -->
   </div>
 </template>
-
-
 <script type="text/javascript">
 // 引入banner和homelist组件
 import Banner from "../../commons/Banner.vue";
@@ -28,8 +26,6 @@ export default {
   }
 };
 </script>
-
-
 <style lang="less" scoped>
 @import url("../../../styls/main.less");
 .home {

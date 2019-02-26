@@ -3,14 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <!-- <meta name="viewport" content="width=device-width,initial-scale=1.0" /> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no"
+    />
     <title>可得眼镜网</title>
     <!-- 测试页面移动 -->
-    <!--  <style type="text/css">
-        *{
-          border:1px solid red;
-        }
-    </style> -->
+
     <!-- index中引用font-awesome字体图标库 -->
     <link
       rel="stylesheet"
@@ -18,13 +17,32 @@
       href="/static/css/font-awesome.css"
     />
     <!-- 设置html字体 -->
+    <style>
+      #app {
+        max-width: 750px;
+        margin: 0 auto;
+      }
+    </style>
     <script type="text/javascript">
-      document.documentElement.style.fontSize =
-        document.documentElement.clientWidth / 10 + "px";
+      var screenWidth = document.documentElement.clientWidth;
+      if (screenWidth <= 750) {
+        // console.log(screenWidth);
+        document.documentElement.style.fontSize = screenWidth / 10 + "px";
+      } else {
+        document.documentElement.style.fontSize = 750 / 10 + "px";
+      }
+      
+      //窗口变化会刷新页面
+      // window.onresize = function() {
+      //   location.reload() //刷新
+      // };
+
+      // document.documentElement.style.fontSize = screenWidth / 10 + "px";
+      // document.documentElement.style.fontSize =
+      //   document.documentElement.clientWidth / 10 + "px";
       // 除以多少都可以100；16，只需要根字体大小和宽度的关系；宽度变化，高度不用管
       // console.log(document.documentElement.style.fontSize);
     </script>
-    
   </head>
 
   <body>

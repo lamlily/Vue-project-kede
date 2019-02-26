@@ -33,8 +33,6 @@ const store = new Vuex.Store({
             state.isLogin = obj.isLogin;
         }
 
-
-
     },
     // 获取数据的方法
     getters: {

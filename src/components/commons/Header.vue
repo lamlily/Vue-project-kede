@@ -28,7 +28,7 @@ export default {
     goPage() {
       if (this.titles == "毒物") {
         this.$router.push("/my");
-        console.log("66666")
+        console.log("66666");
       } else {
         this.$router.go(-1);
       }
@@ -63,10 +63,15 @@ export default {
 // 引入配置样式总模块，固定写法
 @import url("../../styls/main.less");
 .header {
+  //限制最大宽度
+  max-width: @divMaxWidth;
+  margin: @divMargin;
+
   position: fixed;
   z-index: 999;
   top: 0;
   left: 0;
+  right: 0;
   width: 100%;
 
   background: @bg-header;
@@ -75,8 +80,8 @@ export default {
   align-items: center;
   color: @color-header;
   text-align: center;
-  //    .left{
-  display: flex;
+  //  .left{
+  // display: flex;
   .nav-icon,
   .nav-right {
     .w(48);
@@ -88,13 +93,13 @@ export default {
       .fs(30);
     }
     span {
-      .fs(18);
+      .fs(16);
     }
   }
   .nav-title {
     .h(45);
     .lh(45);
-    .fs(20);
+    .fs(16);
     text-align: left;
     color: #fff;
   }

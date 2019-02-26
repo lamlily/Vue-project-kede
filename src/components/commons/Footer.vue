@@ -54,7 +54,7 @@ export default {
         $route(to, from) {
           // to,from 分别表示从哪跳转到哪，都是一个对象 // to.path(表示的是要跳转到的路由的地址);
           this.selInit = to.path;
-          console.log(to.path)
+          // console.log(to.path)
         }
         
       }
@@ -67,12 +67,17 @@ export default {
 @import url("../../styls/main.less");
 
 .footer {
+  //限制最大宽度
+  max-width: @divMaxWidth;
+  margin: @divMargin;
+
   .w(375);
   border: 1px solid #ccc;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
+  width: 100%;
   ul {
     display: flex;
     justify-content: space-between;
@@ -82,6 +87,7 @@ export default {
     li {
       .h(55);
       .fs(12);
+      
       width: 25%;
       display: flex;
       flex-direction: column;
@@ -90,10 +96,11 @@ export default {
 
       color: #999;
       i {
-        .fs(20);
+        .fs(18);
       }
       span {
-        .fs(16);
+        // .fs(14);
+        .fs14();
         .padding(5, 0, 0, 0);
       }
     }

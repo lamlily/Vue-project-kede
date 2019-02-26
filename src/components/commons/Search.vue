@@ -59,16 +59,20 @@ export default {
  <style  lang="less" scoped>
 @import url("../../styls/main.less");
 .search {
+  //限制最大宽度
+  max-width: @divMaxWidth;
+  margin: @divMargin;
+
   display: flex;
   justify-content: center;
   align-items: center;
   background: #141414;
   .fs(14);
   .h(45);
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 999;
   .left {
     width: 20%;

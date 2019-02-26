@@ -36,4 +36,5 @@ export default {
 <style lang="less" scoped>
 // 引入配置样式总模块，固定写法
 @import url("../../../styls/main.less");
+
 </style>

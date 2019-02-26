@@ -28,13 +28,15 @@ export default {
 <style lang="less" scoped>
 @import url("../../styls/main.less");
 div {
-  // .margin(20,0,0,0);
+  //限制最大宽度
+  max-width: @divMaxWidth;
+  margin: @divMargin;
   .banner {
     .h(225);
     .banner-item {
       .h(225);
       .img {
-        .w(375);
+        // .w(375);
         .h(245);
       }
     }

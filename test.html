@@ -1,0 +1,29 @@
+// router.beforeEach((to, from, next) => {
+    //   let isLogin = localStorage.getItem("isLogin");
+    //   //发送验证请求，验证token是否过期
+    //   let rootPath = store.getters.getRootPath;
+    //   let path = to.path; //正要进入的路由地址
+    //   if (path == "/car" || path == "/myinfo") {
+    //     Axios.post(
+    //       `${rootPath}/users/autoLoginKua`,
+    //       qs.stringify({
+    //         token: isLogin
+    //       })
+    //     )
+    //       .then(res => {
+    //         if (res.data.status === true) {
+    //           next();
+    //         } else {
+    //           router.push("/login");
+    //           next();
+    //         }
+    //       })
+    //       .catch(err => {
+    //         router.push("/login");
+    //         next();
+    //       });
+    //   } else {
+    //     next();
+    //   }
+    //   // next();
+    // });

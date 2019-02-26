@@ -23,6 +23,9 @@ export default {
 <style lang="less" scoped>
 @import url("../../../styls/main.less");
 .car {
+  //限制最大宽度
+  max-width: @divMaxWidth;
+  margin: @divMargin;
   .padding(45, 0, 0, 0);
 }
 </style>

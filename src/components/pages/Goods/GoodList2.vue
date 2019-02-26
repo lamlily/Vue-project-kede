@@ -1,6 +1,6 @@
 // 瀑布流布局
 <template>
-  <div class="goodlist">
+  <div class="goodlist" ref="goodlist">
     <ul id="wrap" ref="wrap">
       <li class="li_item" v-for="(item,idx) in goodsList" :key="idx" @click="goPage(item.goodId)">
         <div class="img_top">
@@ -37,9 +37,14 @@ export default {
       // console.log(this.$refs.img[0].offsetHeight);
       let items = wrap.children; //子元素数量
       let itemWidth = items[0].offsetWidth; //元素宽度
+      // console.log(window.innerWidth)
       //1.计算列数及列间距
-      let cols = parseInt(window.innerWidth / itemWidth); //列数
-      let gap = (window.innerWidth % itemWidth) / (cols + 1); //间距
+      let goodlist = this.$refs.goodlist;
+      let goodlistWidth = goodlist.offsetWidth;
+      // console.log(goodlistWidth)
+      let cols = parseInt(goodlistWidth / itemWidth); //列数
+      // let cols = parseInt(window.innerWidth / itemWidth); //列数
+      let gap = (goodlistWidth % itemWidth) / (cols + 1); //间距
       let pos = [];
       for (var i = 0; i < cols; i++) {
         var obj = {
@@ -68,10 +73,10 @@ export default {
         wrap.style.height = pos[minIdx].top + 70 + "px";
       }
     },
-    goPage(id){
-      console.log(id)
+    goPage(id) {
+      // console.log(id);
       //跳转到商品详情页
-      this.$router.push('/details');
+      this.$router.push("/details");
     }
   },
   created() {
@@ -83,14 +88,14 @@ export default {
     // 设置延时器，等待图片渲染完成再执行函数，
     setTimeout(() => {
       this.waterfall();
-      console.log(9999999999);
+      // console.log(9999999999);
     }, 200);
   },
   watch: {
     "$store.getters.getGoodType.goodsList": function() {
       //你需要执行的代码
       this.goodsList = this.$store.getters.getGoodType.goodsList;
-      console.log(this.goodsList);
+      // console.log(this.goodsList);
     }
   }
 };
@@ -98,14 +103,15 @@ export default {
 <style lang="less" scoped>
 @import "../../../styls/mixin.less";
 .goodlist {
+  .padding(0,0,55,0);
   ul {
     .w(375);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     background: #eee;
-
     position: relative;
+    
     .li_item {
       width: 43%;
       border: 1px solid #ccc;
@@ -113,8 +119,8 @@ export default {
       background: #fff;
 
       position: absolute;
-      left: 0;
-      top: 0;
+      // left: 0;
+      // top: 0;
       .img_top {
         img {
           width: 100%;

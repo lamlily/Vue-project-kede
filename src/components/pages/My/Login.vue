@@ -11,9 +11,7 @@
         >{{item.title}}</li>
       </ul>
     </div>
-    <!-- <Mylist :path='selInit'></Mylist> -->
     <form action>
-      <!-- <h4>注册</h4> -->
       <input type="text" placeholder="手机号/邮箱" class="uname" v-model="user">
       <input
         type="text"
@@ -35,10 +33,7 @@
     </form>
   </div>
 </template>
-
-
 <script >
-import qs from "qs";
 export default {
   name: "Login",
   components: {},
@@ -50,7 +45,6 @@ export default {
       ],
       selInit: "tologin",
       rootPath: "",
-
       user: null,
       password: null,
       isTrue: true
@@ -61,43 +55,17 @@ export default {
     toggle(val) {
       this.selInit = val;
     },
-
     getData() {
       if (this.isTrue == true) {
         if (this.password != null) {
           var params = new URLSearchParams();
           params.append("uname", this.username);
           params.append("getcode", this.password);
-          // this.$axios
-          //   .get(
-          //     `${this.rootPath}/users/login`,
-          //     // params)
-          //     {
-          //       params: {
-          //         user: this.user,
-          //         password: this.password
-          //       }
-          //     }
-          //   )
-          //   .then(res => {
-          //     this.goods = res.data.data;
-          //     console.log(res);
-          //     if (res.data.status == "success") {
-          //       location.href = "/";
-          //       let isLogin = true;
-          //     } else {
-          //       alert("密码错误");
-          //     }
-          //   })
-          //   .catch(err => {
-          //     console.log(err);
-          //   });
-
-          //post请求   利用qs模块实现post请求跨域问题
+          //post请求   利用qs模块实现post请求跨域问题,已在main.js中挂载到原型链上
           this.$axios
             .post(
               `${this.rootPath}/users/login`,
-              qs.stringify({
+              this.$qs.stringify({
                 user: this.user,
                 password: this.password
               })
@@ -106,11 +74,12 @@ export default {
               this.goods = res.data.data;
               if (res.data.status == "success") {
                 this.$router.push("/home");
+                // let token = JSON.stringify(res.data.token);
                 //修改仓库中的状态值
                 // this.$store.commit("editisLogin", { isLogin: true });
                 //本地储存
-                localStorage.setItem("isLogin", true);
-                console.log(localStorage.getItem("isLogin"));
+                localStorage.setItem("isLogin", res.data.token);
+                // console.log(localStorage.getItem("isLogin"));
               } else {
                 alert("密码错误");
               }
@@ -133,6 +102,7 @@ export default {
 <style lang="less" scoped>
 // 引入配置样式总模块，固定写法
 @import url("../../../styls/main.less");
+//样式混乱
 form {
   height: 100%;
   // background: pink;
@@ -234,36 +204,42 @@ form.mima {
   display: none;
 }
 
-.my_nav {
-  ul {
-    .w(350);
-    display: flex;
-    justify-content: center;
-    // align-items:center;
-    // justify-content:center;
-    // .padding(20,20,20,20);
-    .fs(16);
-    margin: 0 auto;
-    // border-bottom:1px solid #8FC320;
+//样式混乱
+.login {
+  //限制最大宽度
+  max-width: @divMaxWidth;
+  margin: @divMargin;
+  .my_nav {
+    ul {
+      .w(350);
+      display: flex;
+      justify-content: center;
+      // align-items:center;
+      // justify-content:center;
+      // .padding(20,20,20,20);
+      .fs(16);
+      margin: 0 auto;
+      // border-bottom:1px solid #8FC320;
 
-    li {
-      .w(175);
-      .h(45);
-      border-bottom: 2px solid #fff;
-      .lh(45);
-      text-align: center;
-      .margin(5, 5, 15, 5);
+      li {
+        .w(175);
+        .h(45);
+        border-bottom: 2px solid #fff;
+        .lh(45);
+        text-align: center;
+        .margin(5, 5, 15, 5);
+      }
+      .sel {
+        border-bottom: 3px solid #8fc320;
+        // color:#8FC320;
+        font-weight: bold;
+        .fs(18);
+      }
     }
-    .sel {
-      border-bottom: 3px solid #8fc320;
-      // color:#8FC320;
-      font-weight: bold;
-      .fs(18);
+    img.topimg {
+      .w(375);
+      .h(194);
     }
-  }
-  img.topimg {
-    .w(375);
-    .h(194);
   }
 }
 </style>

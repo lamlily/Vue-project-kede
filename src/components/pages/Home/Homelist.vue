@@ -32,7 +32,7 @@ export default {
       this.$router.push({ path: `/details/${id}` });
     },
     getData() {
-      //先显示load状态
+      //先显示load状态 这个组件会引起两个跟组件
       Indicator.open({
         text: "加载中...",
         spinnerType: "double-bounce"
